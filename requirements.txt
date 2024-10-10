@@ -1,0 +1,7 @@
+matplotlib
+streamlit
+pandas
+streamlit
+openpyxl  # Эта библиотека нужна для чтения Excel-файлов
+seaborn
+openpyxl
