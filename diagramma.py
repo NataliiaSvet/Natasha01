@@ -46,6 +46,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Форматирование числового столбца с разделителями тысяч
+df['Сумма, крон'] = df['Сумма, крон'].apply(lambda x: '{:,.0f}'.format(x).replace(',', ' '))
+
 # Создание колонок
 col1, col2 = st.columns([1, 2])
 
