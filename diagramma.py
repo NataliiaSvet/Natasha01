@@ -56,7 +56,7 @@ with col1:
     df = df[['Вид помощи', 'Сумма, крон']]  # Изменяем порядок столбцов
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black; width: 100%;"') \
         .set_properties(**{'border': '1px solid black', 'font-weight': 'bold', 'text-align': 'center'}) \
-        .set_caption("Итого по всем видам помощи") \
+        # .set_caption("Итого по всем видам помощи") \
         .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('text-align', 'center'), ('font-size', '14px')]}])
 
     st.table(styled_df)
