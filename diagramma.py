@@ -7,10 +7,7 @@ import streamlit as st
 rcParams['font.family'] = 'Arial'
 
 # Конфигурация страницы
-st.set_page_config(page_title="Анализ затрат", layout="wide")  # Используйте layout="wide" для широкой страницы
-
-# Заголовок приложения
-# st.title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.')
+st.set_page_config(page_title="Анализ затрат", layout="wide")
 
 # Вывод заголовка по центру
 st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
@@ -28,10 +25,6 @@ total_sum = df['Сумма, крон'].sum()  # Предполагается, ч
 total_row = pd.DataFrame({'Вид помощи': ['Итого'], 'Сумма, крон': [total_sum]})
 df = pd.concat([df, total_row], ignore_index=True)  # Добавляем строку в DataFrame
 
-# Предположим, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
-# categories = df['Вид помощи']
-# values = df['Сумма, крон']
-
 # Установка фона через markdown с использованием CSS
 st.markdown(
 """
@@ -43,14 +36,39 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-# Построение круговой диаграммы
-fig, ax = plt.subplots(figsize=(10, 10))
-ax.pie(values, labels=categories, autopct='%1.1f%%', textprops={'fontsize': 14}, startangle=45)
-ax.set_title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.', fontsize=18, pad=40)
-ax.axis('equal')  # Чтобы круг не был эллипсом
 
-# Отображение диаграммы
-st.pyplot(fig)
+# Создание колонок
+col1, col2 = st.columns([1, 2])
+
+# В первой колонке отображаем таблицу
+with col1:
+    st.write("### Таблица данных")
+    # Форматируем таблицу
+    styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black; width: 100%;"') \
+        .set_properties(**{'border': '1px solid black', 'font-weight': 'bold', 'text-align': 'center'}) \
+        .set_caption("Итого по всем видам помощи") \
+        .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('text-align', 'center'), ('font-size', '14px')]}])
+
+    st.table(styled_df)
+
+# Во второй колонке отображаем диаграмму
+with col2:
+    # Предполагаем, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
+    categories = df['Вид помощи'][:-1]  # Исключаем строку "Итого"
+    values = df['Сумма, крон'][:-1]  # Исключаем строку "Итого"
+
+    # Построение круговой диаграммы
+    fig, ax = plt.subplots(figsize=(10, 10))
+    ax.pie(values, labels=categories, autopct='%1.1f%%', textprops={'fontsize': 14}, startangle=45)
+    ax.set_title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.', fontsize=18, pad=40)
+    ax.axis('equal')  # Чтобы круг не был эллипсом
+
+    # Отображение диаграммы
+    st.pyplot(fig)
+
+# Добавление отступа в конце
+st.markdown('<br>', unsafe_allow_html=True)
+
 
       
 
