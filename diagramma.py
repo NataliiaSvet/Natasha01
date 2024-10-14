@@ -22,7 +22,7 @@ df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 # df = df.iloc[:, 1:]
 
 # Вывод DataFrame после удаления первой колонки
-st.write("### Данные после удаления первой колонки:", df)
+# st.write("### Данные после удаления первой колонки:", df)
 
 # Убедимся, что в DataFrame нет NaN
 # df.dropna(inplace=True)
