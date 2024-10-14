@@ -19,6 +19,9 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
+# Удаление первой колонки (нумерации)
+df = df.iloc[:, 1:]
+
 # Вычисление суммы по числовым столбцам
 total_sum = df['Сумма, крон'].sum()  # Предполагается, что у вас есть столбец 'Сумма, крон'
 
