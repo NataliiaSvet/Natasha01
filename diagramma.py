@@ -20,7 +20,7 @@ values = df['Сумма, крон']
 st.markdown(
     """
     <style>
-    .reportview-container {
+    .stApp {
         background-color: #e6ffe6; /* Светло-зеленый фон */
     }
     </style>
