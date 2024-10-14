@@ -19,10 +19,6 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
-# Предположим, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
-categories = df['Вид помощи']
-values = df['Сумма, крон']
-
 # Удаление первой колонки (нумерации)
 df = df.iloc[:, 1:]
 
@@ -30,6 +26,10 @@ df = df.iloc[:, 1:]
 total_row = df.sum(numeric_only=True)  # Суммируем только числовые колонки
 total_row.name = 'Итого'  # Название строки
 df = df.append(total_row)  # Добавляем строку в DataFrame
+
+# Предположим, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
+categories = df['Вид помощи']
+values = df['Сумма, крон']
 
 # Установка фона через markdown с использованием CSS
 st.markdown(
