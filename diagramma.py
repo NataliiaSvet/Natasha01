@@ -39,9 +39,12 @@ st.markdown(
 col1, col2 = st.columns([1, 2])  # Устанавливаем пропорции колонок
 
 # В первой колонке отображаем таблицу
-with col1:
-    # st.write("### Таблица данных")
-    st.table(df)
+st.write("### Таблица данных")
+    # Форматируем таблицу
+    styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black;"') \
+        .set_properties(**{'border': '1px solid black', 'font-weight': 'bold'}) \
+        .set_caption("Итого по всем видам помощи") \
+        .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('text-align', 'center')]}])
 
 # Во второй колонке отображаем диаграмму
 with col2:
