@@ -43,7 +43,8 @@ col1, col2 = st.columns([1, 2])
 # В первой колонке отображаем таблицу
 with col1:
     st.write("### Таблица данных")
-    # Форматируем таблицу
+    # Форматируем таблицу, поменяв местами колонки
+    df = df[['Вид помощи', 'Сумма, крон']]  # Изменяем порядок столбцов
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black; width: 100%;"') \
         .set_properties(**{'border': '1px solid black', 'font-weight': 'bold', 'text-align': 'center'}) \
         .set_caption("Итого по всем видам помощи") \
@@ -68,6 +69,7 @@ with col2:
 
 # Добавление отступа в конце
 st.markdown('<br>', unsafe_allow_html=True)
+
 
 
       
