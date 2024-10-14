@@ -71,7 +71,7 @@ with col2:
 
     # Построение круговой диаграммы
     fig, ax = plt.subplots(figsize=(10, 10))
-    ax.pie(values, labels=categories, autopct='%1.1f%%', textprops={'fontsize': 14}, startangle=60)
+    ax.pie(values, labels=categories, autopct='%1.1f%%', textprops={'fontsize': 14}, startangle=30)
     ax.set_title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.', fontsize=18, pad=40)
     ax.axis('equal')  # Чтобы круг не был эллипсом
 
