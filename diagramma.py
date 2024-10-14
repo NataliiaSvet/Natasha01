@@ -8,7 +8,10 @@ import streamlit as st
 rcParams['font.family'] = 'Arial'
 
 # Заголовок приложения
-st.title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.')
+# st.title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.')
+
+# Вывод заголовка по центру
+st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
