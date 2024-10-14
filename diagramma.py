@@ -16,7 +16,7 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
 # Вывод загруженного DataFrame для диагностики
-st.write("### Загруженные данные:", df)
+# st.write("### Загруженные данные:", df)
 
 # Удаление первой колонки (нумерации)
 # df = df.iloc[:, 1:]
@@ -25,7 +25,7 @@ st.write("### Загруженные данные:", df)
 st.write("### Данные после удаления первой колонки:", df)
 
 # Убедимся, что в DataFrame нет NaN
-df.dropna(inplace=True)
+# df.dropna(inplace=True)
 
 # Вычисление суммы по числовым столбцам
 total_sum = df['Сумма, крон'].sum()  # Предполагается, что у вас есть столбец 'Сумма, крон'
