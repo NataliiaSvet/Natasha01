@@ -27,8 +27,8 @@ total_row = pd.DataFrame({'Вид помощи': ['Итого'], 'Сумма, к
 df = pd.concat([df, total_row], ignore_index=True)  # Добавляем строку в DataFrame
 
 # Предположим, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
-categories = df['Вид помощи']
-values = df['Сумма, крон']
+# categories = df['Вид помощи']
+# values = df['Сумма, крон']
 
 # Установка фона через markdown с использованием CSS
 st.markdown(
