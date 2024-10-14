@@ -56,7 +56,7 @@ with col1:
     df = df[['Вид помощи', 'Сумма, крон']]  # Изменяем порядок столбцов
     # Стиль таблицы с одинаковыми жирными границами
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; width: 100%;"') \
-        .set_properties(**{'border': '1px solid black', 'text-align': 'center'}) \
+        .set_properties(**{'border': '2px solid black', 'text-align': 'center'}) \
         .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('border', '2px solid black'), ('text-align', 'center'), ('font-size', '14px')]}])
     st.table(styled_df)
 
