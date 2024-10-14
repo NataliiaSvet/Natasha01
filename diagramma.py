@@ -51,7 +51,7 @@ col1, col2 = st.columns([1, 2])
 
 # В первой колонке отображаем таблицу
 with col1:
-    st.write("### Таблица данных")
+    # st.write("### Таблица данных")
     # Форматируем таблицу, поменяв местами колонки
     df = df[['Вид помощи', 'Сумма, крон']]  # Изменяем порядок столбцов
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black; width: 100%;"') \
@@ -70,7 +70,7 @@ with col2:
     # Построение круговой диаграммы
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.pie(values, labels=categories, autopct='%1.1f%%', textprops={'fontsize': 14}, startangle=45)
-    ax.set_title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.', fontsize=18, pad=40)
+    # ax.set_title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.', fontsize=18, pad=40)
     ax.axis('equal')  # Чтобы круг не был эллипсом
 
     # Отображение диаграммы
