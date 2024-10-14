@@ -15,8 +15,14 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
+# Вывод загруженного DataFrame для диагностики
+st.write("### Загруженные данные:", df)
+
 # Удаление первой колонки (нумерации)
 df = df.iloc[:, 1:]
+
+# Вывод DataFrame после удаления первой колонки
+st.write("### Данные после удаления первой колонки:", df)
 
 # Убедимся, что в DataFrame нет NaN
 df.dropna(inplace=True)
@@ -50,7 +56,7 @@ with col1:
     df = df[['Вид помощи', 'Сумма, крон']]  # Изменяем порядок столбцов
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black; width: 100%;"') \
         .set_properties(**{'border': '1px solid black', 'font-weight': 'bold', 'text-align': 'center'}) \
-        # .set_caption("Итого по всем видам помощи") \
+        .set_caption("Итого по всем видам помощи") \
         .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('text-align', 'center'), ('font-size', '14px')]}])
 
     st.table(styled_df)
@@ -73,7 +79,6 @@ with col2:
 # Добавление отступа в конце
 st.markdown('<br>', unsafe_allow_html=True)
 
-st.write(df)  # Добавьте это для диагностики
 
       
 
