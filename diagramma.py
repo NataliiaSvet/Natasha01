@@ -35,5 +35,5 @@ plt.title('Затраты Чешской республики на помощь 
 plt.axis('equal')  # Для того чтобы круг не был эллипсом
 
 # Отображение графика в Streamlit
-st.pyplot(fig)
+st.pyplot(plt)
 
