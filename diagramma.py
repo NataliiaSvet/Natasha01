@@ -73,7 +73,7 @@ with col2:
 # Добавление отступа в конце
 st.markdown('<br>', unsafe_allow_html=True)
 
-
+st.write(df)  # Добавьте это для диагностики
 
       
 
