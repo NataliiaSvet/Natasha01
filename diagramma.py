@@ -19,6 +19,9 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
+# Удаление первой колонки (нумерации)
+df = df.iloc[:, 1:]
+
 # Предположим, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
 categories = df['Вид помощи']
 values = df['Сумма, крон']
