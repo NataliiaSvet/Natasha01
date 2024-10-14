@@ -19,7 +19,7 @@ df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 st.write("### Загруженные данные:", df)
 
 # Удаление первой колонки (нумерации)
-df = df.iloc[:, 1:]
+# df = df.iloc[:, 1:]
 
 # Вывод DataFrame после удаления первой колонки
 st.write("### Данные после удаления первой колонки:", df)
