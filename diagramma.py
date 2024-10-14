@@ -19,6 +19,13 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
+# Вычисление суммы по числовым столбцам
+total_sum = df['Сумма, крон'].sum()  # Предполагается, что у вас есть столбец 'Сумма, крон'
+
+# Добавление строки "Итого"
+total_row = pd.DataFrame({'Вид помощи': ['Итого'], 'Сумма, крон': [total_sum]})
+df = pd.concat([df, total_row], ignore_index=True)  # Добавляем строку в DataFrame
+
 # Предположим, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
 categories = df['Вид помощи']
 values = df['Сумма, крон']
