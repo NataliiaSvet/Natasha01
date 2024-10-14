@@ -23,6 +23,14 @@ df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 categories = df['Вид помощи']
 values = df['Сумма, крон']
 
+# Удаление первой колонки (нумерации)
+df = df.iloc[:, 1:]
+
+# Добавление строки "Итого"
+total_row = df.sum(numeric_only=True)  # Суммируем только числовые колонки
+total_row.name = 'Итого'  # Название строки
+df = df.append(total_row)  # Добавляем строку в DataFrame
+
 # Установка фона через markdown с использованием CSS
 st.markdown(
     """
