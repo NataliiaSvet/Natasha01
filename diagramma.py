@@ -52,13 +52,13 @@ col1, col2 = st.columns([1, 2])  # Устанавливаем пропорции
 with col1:
     st.write("### Таблица данных")
     # Форматируем таблицу
-    styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black;"') \
-        .set_properties(**{'border': '1px solid black', 'font-weight': 'bold'}) \
+    styled_df = df.style.set_table_attributes('style="border-collapse: collapse; border: 1px solid black; width: 100%;"') \
+        .set_properties(**{'border': '1px solid black', 'font-weight': 'bold', 'text-align': 'center'}) \
         .set_caption("Итого по всем видам помощи") \
-        .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('text-align', 'center')]}])
+        .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('text-align', 'center'), ('font-size', '14px')]}])
 
     st.table(styled_df)
-
+    
 # Во второй колонке отображаем диаграмму
 with col2:
 
