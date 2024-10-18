@@ -28,10 +28,10 @@ df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 # df.dropna(inplace=True)
 
 # Вычисление суммы по числовым столбцам
-total_sum = df['Сумма, крон'].sum()  # Предполагается, что у вас есть столбец 'Сумма, крон'
+total_sum = df['Сумма, тыс.крон'].sum()  # Предполагается, что у вас есть столбец 'Сумма, тыс.крон'
 
 # Добавление строки "Итого"
-total_row = pd.DataFrame({'Вид помощи': ['Итого'], 'Сумма, крон': [total_sum]})
+total_row = pd.DataFrame({'Вид помощи': ['Итого'], 'Сумма, тыс.крон': [total_sum]})
 df = pd.concat([df, total_row], ignore_index=True)  # Добавляем строку в DataFrame
 
 # Установка фона через markdown с использованием CSS
@@ -47,7 +47,7 @@ st.markdown(
 )
 
 # Форматирование числового столбца с разделителями тысяч
-df['Сумма, крон'] = df['Сумма, крон'].apply(lambda x: '{:,.0f}'.format(x).replace(',', ' '))
+df['Сумма, крон'] = df['Сумма, тыс.крон'].apply(lambda x: '{:,.0f}'.format(x).replace(',', ' '))
 
 # Создание колонок
 col1, col2 = st.columns([1, 2])
@@ -56,7 +56,7 @@ col1, col2 = st.columns([1, 2])
 with col1:
     # st.write("### Таблица данных")
     # Форматируем таблицу, поменяв местами колонки
-    df = df[['Вид помощи', 'Сумма, крон']]  # Изменяем порядок столбцов
+    df = df[['Вид помощи', 'Сумма, тыс.крон']]  # Изменяем порядок столбцов
     # Стиль таблицы с одинаковыми жирными границами
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; width: 100%;"') \
         .set_properties(**{'border': '2px solid black', 'text-align': 'center'}) \
@@ -67,7 +67,7 @@ with col1:
 with col2:
     # Предполагаем, что у вас есть столбцы 'Вид помощи' и 'Сумма, крон'
     categories = df['Вид помощи'][:-1]  # Исключаем строку "Итого"
-    values = df['Сумма, крон'][:-1].str.replace(' ', '').astype(float)  # Преобразуем для построения диаграммы
+    values = df['Сумма, тыс.крон'][:-1].str.replace(' ', '').astype(float)  # Преобразуем для построения диаграммы
 
     # Построение круговой диаграммы
     fig, ax = plt.subplots(figsize=(10, 10))
