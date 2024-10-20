@@ -4,7 +4,7 @@ from folium.plugins import MarkerCluster
 import streamlit as st
 
 # Загрузите ваши данные
-df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
+df = pd.read_excel('your_file.xlsx')  # Замените на ваш файл
 
 # Создание карты
 m = folium.Map(location=[49.8175, 15.473], zoom_start=6)  # Центр Чехии
@@ -15,7 +15,7 @@ marker_cluster = MarkerCluster().add_to(m)
 # Добавление маркеров для каждого региона
 for index, row in df.iterrows():
     folium.Marker(
-        location=[row['Широта'], row['Долгота']],  # Укажите координаты для каждого региона
+        location=[row['Широта'], row['Долгота']],  # Теперь у вас есть координаты
         popup=f"{row['Регион']}: {row['Количество беженцев']}",
         icon=folium.Icon(color='blue')
     ).add_to(marker_cluster)
@@ -23,3 +23,4 @@ for index, row in df.iterrows():
 # Отображение карты в Streamlit
 st.title('Карта количества беженцев в Чехии')
 folium_static(m)
+
