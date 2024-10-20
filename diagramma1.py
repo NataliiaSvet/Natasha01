@@ -58,7 +58,6 @@ with col2:
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=28, explode=explode, shadow=True, textprops={'fontsize': 14})
 
-    # Поскольку круговая диаграмма сама по себе не может быть повернута, можно просто оставить ax.axis('equal').
     ax.axis('equal')  # Чтобы круг не был эллипсом
 
     # Отображение диаграммы
@@ -75,18 +74,7 @@ st.markdown("**Примечание:** Данные основаны на офи
 
 # ______________________________________________________________________________________________________
 
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
-import streamlit as st
-
-# Конфигурация страницы (должна быть первой командой)
-st.set_page_config(page_title="Анализ беженцев", layout="wide")
-
-# Выбор шрифта, поддерживающего кириллицу (например, Arial)
-rcParams['font.family'] = 'Arial'
-
-# Добавление отступа между графиками
+# Добавление отступа
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Заголовок для второй диаграммы
@@ -101,7 +89,7 @@ values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
 plt.figure(figsize=(5.33, 2.67))  # Установка нового размера графика (уменьшенного на 1/3)
-plt.bar(categories, values, color='blue', width=15)  # Построение графика
+plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
 
 # Добавление заголовка и меток осей
 plt.xlabel('Период времени', fontsize=10)
@@ -111,7 +99,7 @@ plt.ylabel('Количество, чел.', fontsize=10)
 plt.xticks(fontsize=5)  # Уменьшение размера шрифта для меток оси X
 plt.yticks(fontsize=5)  # Уменьшение размера шрифта для меток оси Y
 
-# Отображение графика
+# Установка меток оси X
 plt.xticks(rotation=90)  # Поворот меток оси x для удобства
 
 # Отображение графика в Streamlit
