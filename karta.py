@@ -1,31 +1,30 @@
-import geopandas as gpd
 import pandas as pd
-import folium
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import streamlit as st
 
-# Load shapefile of Czech Republic administrative regions
-gdf = gpd.read_file('path_to_czech_shapefile.shp')
+# Конфигурация страницы
+st.set_page_config(page_title="Карта беженцев по регионам Чехии", layout="wide")
 
-# Load refugee data (example: number of refugees per region)
-# Ensure that the dataset contains columns for regions and refugee counts
-df = pd.read_csv('refugee_data.csv')
+# Заголовок
+st.markdown("<h1 style='text-align: center;'>Карта количества беженцев по регионам Чехии</h1>", unsafe_allow_html=True)
 
-# Merge the shapefile with the refugee data based on region
-gdf = gdf.merge(df, on='region_column_name')
+# Загрузка данных о беженцах (предположим, что у вас в файле есть столбцы "Регион" и "Количество беженцев")
+df = pd.read_excel('karta.xlsx')
 
-# Initialize a Folium map centered on the Czech Republic
-m = folium.Map(location=[49.8175, 15.4730], zoom_start=7)
+# Загрузка геоданных Чехии (shapefile с границами регионов)
+map_df = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))  # Это для примера, замените на реальные данные Чехии
 
-# Add a choropleth layer to visualize refugee distribution
-folium.Choropleth(
-    geo_data=gdf,
-    data=gdf,
-    columns=['region_column_name', 'refugee_count'],
-    key_on='feature.properties.region_column_name',
-    fill_color='YlOrRd',
-    fill_opacity=0.7,
-    line_opacity=0.2,
-    legend_name='Number of Ukrainian Refugees'
-).add_to(m)
+# Пример соединения данных по столбцу региона (замените на актуальные поля)
+merged = map_df.set_index('name').join(df.set_index('Регион'))
 
-# Display map
-m.save('czech_refugee_map.html')
+# Построение карты
+fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+merged.plot(column='Количество беженцев', cmap='OrRd', linewidth=0.8, ax=ax, edgecolor='0.8', legend=True)
+
+# Добавление карты в Streamlit
+st.pyplot(fig)
+
+
+
+  
