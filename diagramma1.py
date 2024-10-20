@@ -89,7 +89,7 @@ values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
 plt.figure(figsize=(10, 6))  # Установка размера графика
-plt.bar(categories, values, color='darkblue', width=20)  # Построение графика, правильные аргументы
+plt.bar(categories, values, color='blue', width=15)  # Построение графика, правильные аргументы
 
 # Добавление заголовка и меток осей
 # plt.title('Количество беженцев', fontsize=16)
