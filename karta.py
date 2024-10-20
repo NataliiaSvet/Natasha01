@@ -4,7 +4,7 @@ from folium.plugins import MarkerCluster
 import streamlit as st
 
 # Загрузите ваши данные
-df = pd.read_excel('your_file.xlsx')  # Замените на ваш файл
+df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
 
 # Создание карты
 m = folium.Map(location=[49.8175, 15.473], zoom_start=6)  # Центр Чехии
