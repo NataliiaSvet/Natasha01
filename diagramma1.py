@@ -56,7 +56,7 @@ with col2:
     explode = [0.05] * len(categories)  # Уменьшаем "вытягивание" сегментов
 
     fig, ax = plt.subplots(figsize=(10, 10))
-    ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=140, explode=explode, shadow=True, textprops={'fontsize': 14})
+    ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=30, explode=explode, shadow=True, textprops={'fontsize': 14})
 
     ax.axis('equal')  # Чтобы круг не был эллипсом
 
