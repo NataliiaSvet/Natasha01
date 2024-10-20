@@ -10,6 +10,7 @@ st.set_page_config(page_title="Карта беженцев по регионам
 st.markdown("<h1 style='text-align: center;'>Карта количества беженцев по регионам Чехии</h1>", unsafe_allow_html=True)
 import os
 print(os.getcwd())
+
 df = pd.read_excel('DA_Svietashova_karta.xlsx.xlsx')
 
 
