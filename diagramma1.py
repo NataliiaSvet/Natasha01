@@ -10,7 +10,7 @@ rcParams['font.family'] = 'Arial'
 st.set_page_config(page_title="Анализ затрат", layout="wide")
 
 # Вывод заголовка по центру
-st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Расходы Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
@@ -56,7 +56,7 @@ with col2:
     explode = [0.05] * len(categories)  # Уменьшаем "вытягивание" сегментов
 
     fig, ax = plt.subplots(figsize=(10, 10))
-    ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=25, explode=explode, shadow=True, textprops={'fontsize': 14})
+    ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=28, explode=explode, shadow=True, textprops={'fontsize': 14})
 
     # Поскольку круговая диаграмма сама по себе не может быть повернута, можно просто оставить ax.axis('equal').
     ax.axis('equal')  # Чтобы круг не был эллипсом
