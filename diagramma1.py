@@ -87,12 +87,12 @@ plt.figure(figsize=(4, 2))  # Установка размера графика
 plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
 
 # Добавление меток осей
-plt.xlabel('Период времени', fontsize=5)
-plt.ylabel('Количество, чел.', fontsize=5)
+plt.xlabel('Период времени', fontsize=3)
+plt.ylabel('Количество, чел.', fontsize=3)
 
 # Уменьшение размера подписей по осям
-plt.xticks(fontsize=5)
-plt.yticks(fontsize=5)
+plt.xticks(fontsize=3)
+plt.yticks(fontsize=3)
 
 # Отображение графика
 plt.xticks(rotation=90)  # Поворот меток оси X для удобства
