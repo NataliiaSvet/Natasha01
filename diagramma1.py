@@ -53,7 +53,7 @@ with col2:
     values = df['Сумма, тыс.крон'][:-1].astype(str).str.replace(' ', '').astype(float)
 
     # Создание взрывной диаграммы с объемом
-    explode = [0.1] * len(categories)  # "Вытягиваем" все сегменты для создания объема
+    explode = [0.05] * len(categories)  # Уменьшаем "вытягивание" сегментов
 
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=140, explode=explode, shadow=True, textprops={'fontsize': 14})
@@ -71,6 +71,7 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 16px;
 
 # Примечание
 st.markdown("**Примечание:** Данные основаны на официальных отчетах за последние три года.")
+
 
 
 
