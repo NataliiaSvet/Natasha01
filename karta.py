@@ -22,7 +22,7 @@ for index, row in df.iterrows():
 
 # Отображение карты в Streamlit
 st.markdown(
-    '<div style="margin-left: 15px;">'  # Увеличьте отступ слева
+    '<div style="margin-left: 1px;">'  # Увеличьте отступ слева
     f'<h1>Карта количества беженцев в Чехии</h1>'  # Заголовок
     '</div>',
     unsafe_allow_html=True
