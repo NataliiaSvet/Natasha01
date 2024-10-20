@@ -7,7 +7,7 @@ import streamlit as st
 df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
 
 # Создание карты
-m = folium.Map(location=[49.8175, 15.473], zoom_start=7)  # Центр Чехии
+m = folium.Map(location=[49.8175, 15.473], zoom_start=8)  # Центр Чехии
 
 # Создание кластеров маркеров
 marker_cluster = MarkerCluster().add_to(m)
@@ -24,8 +24,8 @@ for index, row in df.iterrows():
 st.title('Карта количества беженцев в Чехии')
 
 # Установите ширину и высоту карты
-map_height = 1000  # Установите желаемую высоту карты
-map_width = 1200   # Установите желаемую ширину карты
+map_height = 800  # Установите желаемую высоту карты
+map_width = 1000   # Установите желаемую ширину карты
 
 # Сохраните карту в HTML
 map_html = m._repr_html_()
