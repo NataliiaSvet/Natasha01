@@ -90,9 +90,9 @@ plt.figure(figsize=(10, 6))  # Установка размера графика
 plt.bar(categories, values, color='darkblue', width=20)  # Построение графика, правильные аргументы
 
 # Добавление заголовка и меток осей
-plt.title('Количество беженцев', fontsize=16)
-plt.xlabel('Период времени', fontsize=14)
-plt.ylabel('Количество, чел.', fontsize=14)
+# plt.title('Количество беженцев', fontsize=16)
+plt.xlabel('Период времени', fontsize=10)
+plt.ylabel('Количество, чел.', fontsize=10)
 
 # Отображение графика
 plt.xticks(rotation=90)  # Поворот меток оси x для удобства
