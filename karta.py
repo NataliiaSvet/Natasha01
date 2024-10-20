@@ -3,7 +3,7 @@ import folium
 from folium.plugins import MarkerCluster
 import streamlit as st
 
-# Вывод заголовка по центру
+# Заголовок, выровненный по центру
 st.markdown("<h1 style='text-align: center; color: black;'>Карта количества беженцев в Чехии</h1>", unsafe_allow_html=True)
 
 # Загрузите ваши данные
@@ -23,14 +23,6 @@ for index, row in df.iterrows():
         icon=folium.Icon(color='blue')
     ).add_to(marker_cluster)
 
-# Отображение карты в Streamlit
-st.markdown(
-    '<div style="margin-left: 1px;">'  
-    # Увеличьте отступ слева f'<h1>Карта количества беженцев в Чехии</h1>'  # Заголовок
-    #'</div>',
-    unsafe_allow_html=True
-)
-
 # Установите ширину и высоту карты
 map_height = 800  # Установите желаемую высоту карты
 map_width = 1000   # Установите желаемую ширину карты
@@ -38,13 +30,14 @@ map_width = 1000   # Установите желаемую ширину карт
 # Сохраните карту в HTML
 map_html = m._repr_html_()
 
-# Вставьте HTML-код карты в сдвинутый контейнер
-st.components.v1.html(
-    map_html, 
-    height=map_height, 
-    width=map_width, 
-    scrolling=False
+# Оберните заголовок и карту в контейнер с отступами
+st.markdown(
+    f'<div style="margin-left: 50px;">'  # Отступ в 50 пикселей слева
+    f'{map_html}'  # Вставьте HTML-код карты
+    '</div>',
+    unsafe_allow_html=True
 )
+
 
 
 
