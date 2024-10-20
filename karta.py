@@ -1,12 +1,13 @@
 import pandas as pd
-import streamlit as st
 
-# Добавляем возможность загрузки файла
-uploaded_file = st.file_uploader("Загрузите файл с данными о беженцах", type=["xlsx"])
+# Замените 'your_file.xlsx' на имя вашего файла
+df = pd.read_excel('DA_Svietashova_karta.xlsx') 
+# Для .xlsx
+# df = pd.read_csv('your_file.csv')    # Для .csv
 
-# Проверяем, загружен ли файл
-if uploaded_file is not None:
-    df = pd.read_excel(uploaded_file)  # Чтение файла
-    st.write(df)  # Отображение данных файла
+# Отображение первых 5 строк таблицы
+print(df.head())
 
-  
+# Проверка названий колонок
+print(df.columns)
+
