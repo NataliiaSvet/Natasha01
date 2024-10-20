@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import streamlit as st
 
+# Конфигурация страницы (должна быть первой командой)
+st.set_page_config(page_title="Анализ затрат и беженцев", layout="wide")
+
 # Выбор шрифта, поддерживающего кириллицу (например, Arial)
 rcParams['font.family'] = 'Arial'
 
-# Конфигурация страницы
-st.set_page_config(page_title="Анализ затрат", layout="wide")
-
-# Вывод заголовка по центру
+# Заголовок страницы
 st.markdown("<h1 style='text-align: center; color: black;'>Расходы Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
 
-# Загрузка данных
+# Загрузка данных для диаграммы расходов
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
 # Вычисление суммы по числовым столбцам
@@ -34,7 +34,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Создание колонок
+# Создание колонок для первой диаграммы
 col1, col2 = st.columns([1, 2])
 
 # В первой колонке отображаем таблицу
@@ -75,26 +75,15 @@ st.markdown("**Примечание:** Данные основаны на офи
 
 # ______________________________________________________________________________________________________
 
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
-import streamlit as st
-
-# Конфигурация страницы (должна быть первой командой)
-st.set_page_config(page_title="Анализ беженцев", layout="wide")
-
-# Выбор шрифта, поддерживающего кириллицу (например, Arial)
-rcParams['font.family'] = 'Arial'
-
-# Заголовок страницы
+# Заголовок для второй диаграммы
 st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев во времени</h1>", unsafe_allow_html=True)
 
-# Загрузка данных
-df = pd.read_excel('DA_Svietashova_gist.xlsx')
+# Загрузка данных для столбчатой диаграммы
+df_refugees = pd.read_excel('DA_Svietashova_gist.xlsx')
 
 # Предполагается, что у вас есть столбцы 'Период времени' и 'Количество, чел.'
-categories = df['Период времени']
-values = df['Количество, чел.']
+categories = df_refugees['Период времени']
+values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
 plt.figure(figsize=(10, 6))  # Установка размера графика
