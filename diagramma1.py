@@ -56,7 +56,7 @@ with col2:
     explode = [0.05] * len(categories)  # Уменьшаем "вытягивание" сегментов
 
     fig, ax = plt.subplots(figsize=(10, 10))
-    ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=20, explode=explode, shadow=True, textprops={'fontsize': 14})
+    ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=25, explode=explode, shadow=True, textprops={'fontsize': 14})
 
     # Поскольку круговая диаграмма сама по себе не может быть повернута, можно просто оставить ax.axis('equal').
     ax.axis('equal')  # Чтобы круг не был эллипсом
