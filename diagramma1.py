@@ -48,16 +48,11 @@ with col1:
 # Во второй колонке отображаем объемную круговую диаграмму
 with col2:
     categories = df['Вид помощи'][:-1]
-
-    # Преобразование значений столбца 'Сумма, тыс.крон' в строки, затем удаление пробелов и преобразование обратно в числа
     values = df['Сумма, тыс.крон'][:-1].astype(str).str.replace(' ', '').astype(float)
 
-    # Создание взрывной диаграммы с объемом
     explode = [0.05] * len(categories)  # Уменьшаем "вытягивание" сегментов
-
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=28, explode=explode, shadow=True, textprops={'fontsize': 14})
-
     ax.axis('equal')  # Чтобы круг не был эллипсом
 
     # Отображение диаграммы
@@ -72,38 +67,33 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 16px;
 # Примечание
 st.markdown("**Примечание:** Данные основаны на официальных отчетах за последние три года.")
 
-# ______________________________________________________________________________________________________
-
-# Добавление отступа
-st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
+# Отступ между графиками
+st.markdown("<div style='height: 200px;'></div>", unsafe_allow_html=True)
 
 # Заголовок для второй диаграммы
 st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев в Чешской республике с февраля 2022 г.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных для столбчатой диаграммы
 df_refugees = pd.read_excel('DA_Svietashova_gist.xlsx')
-
-# Предполагается, что у вас есть столбцы 'Период времени' и 'Количество, чел.'
 categories = df_refugees['Период времени']
 values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
-plt.figure(figsize=(5.33, 2.67))  # Установка нового размера графика (уменьшенного на 1/3)
-plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
+plt.figure(figsize=(5, 2.5))  # Установка нового размера графика
+plt.bar(categories, values, color='blue', width=15)
 
-# Добавление заголовка и меток осей
+# Добавление меток осей
 plt.xlabel('Период времени', fontsize=10)
 plt.ylabel('Количество, чел.', fontsize=10)
 
 # Уменьшение размера подписей по осям
-plt.xticks(fontsize=5)  # Уменьшение размера шрифта для меток оси X
-plt.yticks(fontsize=5)  # Уменьшение размера шрифта для меток оси Y
+plt.xticks(fontsize=5)
+plt.yticks(fontsize=5)
 
-# Установка меток оси X
-plt.xticks(rotation=90)  # Поворот меток оси x для удобства
-
-# Отображение графика в Streamlit
+# Отображение графика
+plt.xticks(rotation=90)
 st.pyplot(plt)
+
 
 
 
