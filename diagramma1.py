@@ -68,7 +68,7 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 16px;
 st.markdown("**Примечание:** Данные основаны на официальных отчетах за последние три года.")
 
 # Отступ между графиками
-st.markdown("<div style='height: 200px;'></div>", unsafe_allow_html=True)
+st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Заголовок для второй диаграммы
 st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев в Чешской республике с февраля 2022 г.</h1>", unsafe_allow_html=True)
@@ -87,8 +87,8 @@ plt.figure(figsize=(4, 2))  # Установка размера графика
 plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
 
 # Добавление меток осей
-plt.xlabel('Период времени', fontsize=3)
-plt.ylabel('Количество, чел.', fontsize=3)
+plt.xlabel('Период времени', fontsize=4)
+plt.ylabel('Количество, чел.', fontsize=4)
 
 # Уменьшение размера подписей по осям
 plt.xticks(fontsize=3)
