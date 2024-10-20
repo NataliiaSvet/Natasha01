@@ -11,7 +11,7 @@ st.markdown("<h1 style='text-align: center;'>Карта количества б�
 import os
 print(os.getcwd())
 
-df = pd.read_excel('DA_Svietashova_karta.xlsx.')
+df = pd.read_excel('DA_Svietashova_karta.xlsx')
 
 
 # Загрузка данных о беженцах (предположим, что у вас в файле есть столбцы "Регион" и "Количество беженцев")
