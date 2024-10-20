@@ -16,11 +16,11 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
 # Вычисление суммы по числовым столбцам
-total_sum = df['Сумма, тыс.крон'].sum()  # Предполагается, что у вас есть столбец 'Сумма, тыс.крон'
+total_sum = df['Сумма, тыс.крон'].sum()
 
 # Добавление строки "Итого"
 total_row = pd.DataFrame({'Вид помощи': ['Итого'], 'Сумма, тыс.крон': [total_sum]})
-df = pd.concat([df, total_row], ignore_index=True)  # Добавляем строку в DataFrame
+df = pd.concat([df, total_row], ignore_index=True)
 
 # Установка фона через markdown с использованием CSS
 st.markdown(
@@ -34,16 +34,12 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Форматирование числового столбца с разделителями тысяч
-df['Сумма, тыс.крон'] = df['Сумма, тыс.крон'].apply(lambda x: '{:,.0f}'.format(x).replace(',', ' '))
-
 # Создание колонок
 col1, col2 = st.columns([1, 2])
 
 # В первой колонке отображаем таблицу
 with col1:
-    df = df[['Вид помощи', 'Сумма, тыс.крон']]  # Изменяем порядок столбцов
-    # Стиль таблицы с одинаковыми жирными границами
+    df = df[['Вид помощи', 'Сумма, тыс.крон']]
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; width: 100%;"') \
         .set_properties(**{'border': '2px solid black', 'text-align': 'center'}) \
         .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('border', '2px solid black'), ('text-align', 'center'), ('font-size', '14px')]}])
@@ -51,37 +47,28 @@ with col1:
 
 # Во второй колонке отображаем объемную круговую диаграмму
 with col2:
-    categories = df['Вид помощи'][:-1]  # Исключаем строку "Итого"
-    values = df['Сумма, тыс.крон'][:-1].str.replace(' ', '').astype(float)  # Преобразуем для построения диаграммы
+    categories = df['Вид помощи'][:-1]
+    values = df['Сумма, тыс.крон'][:-1].str.replace(' ', '').astype(float)
 
-    # Построение объемной круговой диаграммы
-    explode = [0.1] + [0] * (len(categories) - 1)  # Смещаем только первый сегмент для объемного эффекта
+    # Создание взрывной диаграммы с объемом
+    explode = [0.1] * len(categories)  # "Вытягиваем" все сегменты для создания объема
 
     fig, ax = plt.subplots(figsize=(10, 10))
-    ax.pie(values, labels=categories, autopct='%1.1f%%', explode=explode, shadow=True,
-           textprops={'fontsize': 14}, startangle=30)
+    ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=140, explode=explode, shadow=True, textprops={'fontsize': 14})
 
     ax.axis('equal')  # Чтобы круг не был эллипсом
+
+    # Отображение диаграммы
     st.pyplot(fig)
 
-# Добавление отступа в конце
-st.markdown('<br>', unsafe_allow_html=True)
+# Добавление текста под таблицей
+st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 16px;'>
+После начала полномасштабной войны в феврале 2022 г. Чешская республика оказала Украине помощь в размере более 54,5 млрд крон, 
+в том числе в виде гуманитарной помощи, отправленной в Украину, а также помощи украинским беженцам на территории Чехии. 
+1,3 млрд крон было компенсировано из Европейского союза.</div>""", unsafe_allow_html=True)
 
-# Добавление текста под таблицей с корректной разметкой
-st.markdown("""
-    <div style='text-align: left; font-weight: bold; font-size: 16px;'>
-    После начала полномасштабной войны в феврале 2022 г. Чешская республика оказала Украине помощь в размере более 54,5 млрд крон, 
-    в том числе в виде гуманитарной помощи,  отправленной в Украину,  а также помощи украинским беженцам  на территории Чехии. 
-    1,3 млрд крон было компенсировано из Европейского союза.
-    </div>
-    """, unsafe_allow_html=True)
-
-# Вы также можете использовать markdown для стилизованного текста
+# Примечание
 st.markdown("**Примечание:** Данные основаны на официальных отчетах за последние три года.")
-
-
-
-      
 
 
    
