@@ -100,10 +100,6 @@ plt.ylabel('Количество, чел.', fontsize=10)
 plt.xticks(fontsize=5)  # Уменьшение размера шрифта для меток оси X
 plt.yticks(fontsize=5)  # Уменьшение размера шрифта для меток оси Y
 
-# Установка меток на оси X
-plt.xticks(ticks=range(len(categories)), labels=categories, rotation=90)  # Установка меток по оси X
-
-
 # Отображение графика
 plt.xticks(rotation=90)  # Поворот меток оси x для удобства
 # plt.tight_layout()  # Автоматическая подгонка элементов на графике
