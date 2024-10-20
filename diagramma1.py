@@ -73,6 +73,46 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 16px;
 # Примечание
 st.markdown("**Примечание:** Данные основаны на официальных отчетах за последние три года.")
 
+# ______________________________________________________________________________________________________
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+import streamlit as st
+
+# Выбор шрифта, поддерживающего кириллицу (например, Arial)
+rcParams['font.family'] = 'Arial'
+
+# Конфигурация страницы
+st.set_page_config(page_title="Анализ беженцев", layout="wide")
+
+# Заголовок страницы
+st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев во времени</h1>", unsafe_allow_html=True)
+
+# Загрузка данных
+df = pd.read_excel('DA_Svietashova_gist.xlsx')
+
+# Предполагается, что у вас есть столбцы 'Период времени' и 'Количество, чел.'
+categories = df['Период времени']
+values = df['Количество, чел.']
+
+# Построение столбчатой диаграммы
+plt.figure(figsize=(10, 6))  # Установка размера графика
+plt.bar(categories, values, color='darkblue', width=0.5)  # Построение графика, правильные аргументы
+
+# Добавление заголовка и меток осей
+plt.title('Количество беженцев', fontsize=16)
+plt.xlabel('Период времени', fontsize=14)
+plt.ylabel('Количество, чел.', fontsize=14)
+
+# Отображение графика
+plt.xticks(rotation=90)  # Поворот меток оси x для удобства
+plt.tight_layout()  # Автоматическая подгонка элементов на графике
+
+# Отображение графика в Streamlit
+st.pyplot(plt)
+
+
 
 
 
