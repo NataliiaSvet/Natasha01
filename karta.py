@@ -2,7 +2,6 @@ import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
 import streamlit as st
-from streamlit_folium import folium_static
 
 # Загрузите ваши данные
 df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
@@ -28,10 +27,11 @@ st.title('Карта количества беженцев в Чехии')
 map_height = 1000  # Установите желаемую высоту карты
 map_width = 1200   # Установите желаемую ширину карты
 
-# Добавляем карту с установленной шириной и высотой
-st.markdown(
-    f'<div style="width: {map_width}px; height: {map_height}px;">{folium_static(m)}</div>',
-    unsafe_allow_html=True
-)
+# Сохраните карту в HTML
+map_html = m._repr_html_()
+
+# Вставьте HTML-код карты
+st.components.v1.html(map_html, height=map_height, width=map_width)
+
 
 
