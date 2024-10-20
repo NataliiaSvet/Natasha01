@@ -83,12 +83,12 @@ categories = df_refugees['Период времени']
 values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
-plt.figure(figsize=(5, 2.5))  # Установка размера графика
+plt.figure(figsize=(4, 2))  # Установка размера графика
 plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
 
 # Добавление меток осей
-plt.xlabel('Период времени', fontsize=10)
-plt.ylabel('Количество, чел.', fontsize=10)
+plt.xlabel('Период времени', fontsize=5)
+plt.ylabel('Количество, чел.', fontsize=5)
 
 # Уменьшение размера подписей по осям
 plt.xticks(fontsize=5)
