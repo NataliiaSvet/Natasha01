@@ -76,7 +76,7 @@ st.markdown("**Примечание:** Данные основаны на офи
 # ______________________________________________________________________________________________________
 
 # Заголовок для второй диаграммы
-st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев во времени</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев в Чешской республике с февраля 2022 г.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных для столбчатой диаграммы
 df_refugees = pd.read_excel('DA_Svietashova_gist.xlsx')
@@ -87,7 +87,7 @@ values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
 plt.figure(figsize=(10, 6))  # Установка размера графика
-plt.bar(categories, values, color='darkblue', width=0.5)  # Построение графика, правильные аргументы
+plt.bar(categories, values, color='darkblue', width=20)  # Построение графика, правильные аргументы
 
 # Добавление заголовка и меток осей
 plt.title('Количество беженцев', fontsize=16)
