@@ -88,7 +88,7 @@ categories = df_refugees['Период времени']
 values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
-plt.figure(figsize=(10, 6))  # Установка размера графика
+plt.figure(figsize=(6, 6))  # Установка размера графика
 plt.bar(categories, values, color='blue', width=15)  # Построение графика, правильные аргументы
 
 # Добавление заголовка и меток осей
