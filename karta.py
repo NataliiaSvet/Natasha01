@@ -20,8 +20,13 @@ for index, row in df.iterrows():
         icon=folium.Icon(color='blue')
     ).add_to(marker_cluster)
 
-# Отображение карты в Streamlit
-st.title('Карта количества беженцев в Чехии')
+import streamlit as st
+
+# Используем HTML для заголовка
+st.markdown('<h1 style="white-space: nowrap;">Карта количества беженцев в Чехии</h1>', unsafe_allow_html=True)
+
+# Остальной код для отображения карты
+
 
 # Установите ширину и высоту карты
 map_height = 600  # Установите желаемую высоту карты
