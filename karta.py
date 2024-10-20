@@ -3,6 +3,9 @@ import folium
 from folium.plugins import MarkerCluster
 import streamlit as st
 
+# Вывод заголовка по центру
+st.markdown("<h1 style='text-align: center; color: black;'>Карта количества беженцев в Чехии</h1>", unsafe_allow_html=True)
+
 # Загрузите ваши данные
 df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
 
@@ -22,9 +25,9 @@ for index, row in df.iterrows():
 
 # Отображение карты в Streamlit
 st.markdown(
-    '<div style="margin-left: 1px;">'  # Увеличьте отступ слева
-    f'<h1>Карта количества беженцев в Чехии</h1>'  # Заголовок
-    '</div>',
+    '<div style="margin-left: 1px;">'  
+    # Увеличьте отступ слева f'<h1>Карта количества беженцев в Чехии</h1>'  # Заголовок
+    #'</div>',
     unsafe_allow_html=True
 )
 
