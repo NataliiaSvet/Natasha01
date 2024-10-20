@@ -80,11 +80,11 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import streamlit as st
 
+# Конфигурация страницы (должна быть первой командой)
+st.set_page_config(page_title="Анализ беженцев", layout="wide")
+
 # Выбор шрифта, поддерживающего кириллицу (например, Arial)
 rcParams['font.family'] = 'Arial'
-
-# Конфигурация страницы
-st.set_page_config(page_title="Анализ беженцев", layout="wide")
 
 # Заголовок страницы
 st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев во времени</h1>", unsafe_allow_html=True)
@@ -111,6 +111,8 @@ plt.tight_layout()  # Автоматическая подгонка элемен
 
 # Отображение графика в Streamlit
 st.pyplot(plt)
+
+
 
 
 
