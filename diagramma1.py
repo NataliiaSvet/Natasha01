@@ -96,6 +96,10 @@ plt.bar(categories, values, color='blue', width=15)  # Построение гр
 plt.xlabel('Период времени', fontsize=10)
 plt.ylabel('Количество, чел.', fontsize=10)
 
+# Уменьшение размера подписей по осям
+plt.xticks(fontsize=10)  # Уменьшение размера шрифта для меток оси X
+plt.yticks(fontsize=10)  # Уменьшение размера шрифта для меток оси Y
+
 # Отображение графика
 plt.xticks(rotation=90)  # Поворот меток оси x для удобства
 plt.tight_layout()  # Автоматическая подгонка элементов на графике
