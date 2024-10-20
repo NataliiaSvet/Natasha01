@@ -1,4 +1,4 @@
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black.svg)](https://share.streamlit.io/nataliiasvet/natasha01/main/diagramma.py)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black.svg)](https://share.streamlit.io/nataliiasvet/natasha01/main/diagramma1.py)
 
 # Влияние мигрантов из Украины на развитие экономики Чехии
 
@@ -27,5 +27,6 @@
 - Официальные статистические отчеты Чехии (например, ČSÚ).
 - Доклады НПО и международных организаций.
 - Информационные агентства и аналитические исследования.
-
+- uradprace.cz
+- 
 
