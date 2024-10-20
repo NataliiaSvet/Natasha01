@@ -8,6 +8,10 @@ st.set_page_config(page_title="Карта беженцев по регионам
 
 # Заголовок
 st.markdown("<h1 style='text-align: center;'>Карта количества беженцев по регионам Чехии</h1>", unsafe_allow_html=True)
+import os
+print(os.getcwd())
+df = pd.read_excel('karta.xlsx')
+
 
 # Загрузка данных о беженцах (предположим, что у вас в файле есть столбцы "Регион" и "Количество беженцев")
 df = pd.read_excel('karta.xlsx')
