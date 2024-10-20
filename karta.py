@@ -8,7 +8,7 @@ from streamlit_folium import folium_static
 df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
 
 # Создание карты
-m = folium.Map(location=[49.8175, 15.473], zoom_start=6)  # Центр Чехии
+m = folium.Map(location=[49.8175, 15.473], zoom_start=8)  # Центр Чехии
 
 # Создание кластеров маркеров
 marker_cluster = MarkerCluster().add_to(m)
