@@ -2,6 +2,7 @@ import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
 import streamlit as st
+from streamlit_folium import folium_static
 
 # Загрузите ваши данные
 df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
@@ -15,7 +16,7 @@ marker_cluster = MarkerCluster().add_to(m)
 # Добавление маркеров для каждого региона
 for index, row in df.iterrows():
     folium.Marker(
-        location=[row['Широта'], row['Долгота']],  # Теперь у вас есть координаты
+        location=[row['Широта'], row['Долгота']],  # Убедитесь, что эти колонки есть в вашем DataFrame
         popup=f"{row['Регион']}: {row['Количество беженцев']}",
         icon=folium.Icon(color='blue')
     ).add_to(marker_cluster)
