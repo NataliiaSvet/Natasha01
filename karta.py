@@ -23,7 +23,7 @@ for index, row in df.iterrows():
 import streamlit as st
 
 # Используем HTML для заголовка
-st.markdown('<h1 style="white-space: center;">Карта количества беженцев в Чехии</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style='text-align: center;">Карта количества беженцев в Чехии</h1>', unsafe_allow_html=True)
 
 # Остальной код для отображения карты
 
