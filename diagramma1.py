@@ -75,12 +75,16 @@ st.markdown("<h1 style='text-align: center; color: black;'>Количество 
 
 # Загрузка данных для столбчатой диаграммы
 df_refugees = pd.read_excel('DA_Svietashova_gist.xlsx')
+
+# Форматирование столбца 'Период времени' в формат YYYY-MM
+df_refugees['Период времени'] = pd.to_datetime(df_refugees['Период времени']).dt.strftime('%Y-%m')
+
 categories = df_refugees['Период времени']
 values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
-plt.figure(figsize=(5, 2.5))  # Установка нового размера графика
-plt.bar(categories, values, color='blue', width=0.5, tick_label=categories)  # Установка меток по оси X
+plt.figure(figsize=(5, 2.5))  # Установка размера графика
+plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
 
 # Добавление меток осей
 plt.xlabel('Период времени', fontsize=10)
@@ -91,8 +95,9 @@ plt.xticks(fontsize=5)
 plt.yticks(fontsize=5)
 
 # Отображение графика
-plt.xticks(rotation=90)
+plt.xticks(rotation=90)  # Поворот меток оси X для удобства
 st.pyplot(plt)
+
 
 
 
