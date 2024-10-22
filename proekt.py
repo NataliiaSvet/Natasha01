@@ -124,7 +124,6 @@ st.pyplot(plt)
 st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>
 Чехия с февраля 2022 г. предоставила временную защиту более 600 тыс. беженцев из Украины. По текущим данным Министерства внутренних дел Ческой республики, в данный момент в стране находится более 380 тыс. беженцев из Украины с временной защитой всех возрастных категорий, включая детей и стариков.</div>""", unsafe_allow_html=True)
 
------
 # import pandas as pd
 # import folium
 # from folium.plugins import MarkerCluster
