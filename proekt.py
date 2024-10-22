@@ -17,18 +17,6 @@ st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чеш
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
 
-# Вывод загруженного DataFrame для диагностики
-# st.write("### Загруженные данные:", df)
-
-# Удаление первой колонки (нумерации)
-# df = df.iloc[:, 1:]
-
-# Вывод DataFrame после удаления первой колонки
-# st.write("### Данные после удаления первой колонки:", df)
-
-# Убедимся, что в DataFrame нет NaN
-# df.dropna(inplace=True)
-
 # Вычисление суммы по числовым столбцам
 total_sum = df['Сумма, тыс.крон'].sum()  # Предполагается, что у вас есть столбец 'Сумма, тыс.крон'
 
@@ -56,10 +44,7 @@ col1, col2 = st.columns([1, 2])
 
 # В первой колонке отображаем таблицу
 with col1:
-    # st.write("### Таблица данных")
-    # Форматируем таблицу, поменяв местами колонки
     df = df[['Вид помощи', 'Сумма, тыс.крон']]  # Изменяем порядок столбцов
-    # Стиль таблицы с одинаковыми жирными границами
     styled_df = df.style.set_table_attributes('style="border-collapse: collapse; width: 100%;"') \
         .set_properties(**{'border': '2px solid black', 'text-align': 'center'}) \
         .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold'), ('border', '2px solid black'), ('text-align', 'center'), ('font-size', '14px')]}])
@@ -67,18 +52,17 @@ with col1:
 
 # Во второй колонке отображаем диаграмму
 with col2:
-    # Предполагаем, что у вас есть столбцы 'Вид помощи' и 'Сумма, тыс.крон'
     categories = df['Вид помощи'][:-1]  # Исключаем строку "Итого"
     values = df['Сумма, тыс.крон'][:-1].str.replace(' ', '').astype(float)  # Преобразуем для построения диаграммы
 
     # Построение круговой диаграммы
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.pie(values, labels=categories, autopct='%1.1f%%', textprops={'fontsize': 14}, startangle=30)
-    # ax.set_title('Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.', fontsize=18, pad=40)
     ax.axis('equal')  # Чтобы круг не был эллипсом
 
     # Отображение диаграммы
     st.pyplot(fig)
+    plt.close(fig)  # Закрываем фигуру
 
 # Добавление текста под таблицей
 st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>
@@ -105,30 +89,25 @@ categories = df_refugees['Период времени']
 values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
-plt.figure(figsize=(4, 2))  # Установка размера графика
+plt.figure(figsize=(8, 4))  # Установка размера графика
 plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
 
 # Добавление меток осей
-plt.xlabel('Период времени', fontsize=4)
-plt.ylabel('Количество, чел.', fontsize=4)
+plt.xlabel('Период времени', fontsize=10)
+plt.ylabel('Количество, чел.', fontsize=10)
 
 # Уменьшение размера подписей по осям
-plt.xticks(fontsize=3)
-plt.yticks(fontsize=3)
+plt.xticks(fontsize=8)
+plt.yticks(fontsize=8)
 
 # Отображение графика
 plt.xticks(rotation=90)  # Поворот меток оси X для удобства
 st.pyplot(plt)
+plt.close()  # Закрываем фигуру
 
-# Добавление текста под таблицей
+# Добавление текста под диаграммой
 st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>
 Чехия с февраля 2022 г. предоставила временную защиту более 600 тыс. беженцев из Украины. По текущим данным Министерства внутренних дел Ческой республики, в данный момент в стране находится более 380 тыс. беженцев из Украины с временной защитой всех возрастных категорий, включая детей и стариков.</div>""", unsafe_allow_html=True)
-
-# import pandas as pd
-# import folium
-# from folium.plugins import MarkerCluster
-# import matplotlib.pyplot as plt
-# import streamlit as st
 
 # Загрузка первого файла с координатами регионов и количеством беженцев
 df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
@@ -174,9 +153,33 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Выводим таблицу с использованием CSS класса
-st.markdown('<div class="centered-table">')
-st.table(df_procent)  # предположим, df_procent - это DataFrame с процентами
+st.markdown('<div class="centered-table">', unsafe_allow_html=True)
+st.dataframe(df_procent)
 st.markdown('</div>', unsafe_allow_html=True)
+
+# Построение ленточной диаграммы
+st.markdown("<h2 style='text-align: center;'>Распределение беженцев по регионам</h2>", unsafe_allow_html=True)
+
+# Создаем ленточную диаграмму
+fig, ax = plt.subplots(figsize=(8, 6))  # Увеличение размеров фигуры
+bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='skyblue')
+ax.set_xlabel('Количество беженцев, %')
+ax.set_ylabel('Регион')
+
+# Увеличение полей вокруг диаграммы
+plt.subplots_adjust(left=0.2, right=1.5, top=0.9, bottom=0.2)  # Увеличение полей
+
+# Добавление значений на каждый столбик
+for bar in bars:
+    width = bar.get_width()
+    ax.text(width + 0.5, bar.get_y() + bar.get_height() / 2,
+            f'{width:.0f}%', va='center', ha='left')
+
+# Отображаем диаграмму в Streamlit
+st.pyplot(fig)
+plt.close(fig)  # Закрываем фигуру
+
+
 
 
 
