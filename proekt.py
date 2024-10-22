@@ -12,7 +12,7 @@ rcParams['font.family'] = 'Arial'
 st.set_page_config(page_title="Анализ затрат", layout="wide")
 
 # Вывод заголовка по центру
-st.markdown("<h1 style='text-align: center; color: black;'>Затраты Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Расходы Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
@@ -90,7 +90,7 @@ values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
 plt.figure(figsize=(8, 4))  # Установка размера графика
-plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
+plt.bar(categories, values, color='skyblue', width=0.5)  # Построение графика
 
 # Добавление меток осей
 plt.xlabel('Период времени', fontsize=10)
@@ -150,7 +150,7 @@ st.markdown("<h2 style='text-align: center;'>Распределение беже
 
 # Создаем ленточную диаграмму
 fig, ax = plt.subplots(figsize=(10, 6))  # Увеличение размеров фигуры
-bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='skyblue')
+bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='Olive')
 ax.set_xlabel('Количество беженцев, %')
 ax.set_ylabel('Регион')
 # ax.set_title('Количество беженцев в процентах по регионам')
