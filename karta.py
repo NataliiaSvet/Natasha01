@@ -42,13 +42,20 @@ st.markdown("<h2 style='text-align: center;'>Ленточная диаграмм
 
 # Создаем ленточную диаграмму
 fig, ax = plt.subplots(figsize=(10, 6))
-ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='skyblue')
+bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='skyblue')
 ax.set_xlabel('Количество беженцев, %')
 ax.set_ylabel('Регион')
 ax.set_title('Количество беженцев в процентах по регионам')
 
+# Добавление значений на каждый столбик
+for bar in bars:
+    width = bar.get_width()
+    ax.text(width + 0.5, bar.get_y() + bar.get_height() / 2,
+            f'{width:.1f}%', va='center', ha='left')
+
 # Отображаем диаграмму в Streamlit
 st.pyplot(fig)
+
 
 
 
