@@ -174,31 +174,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Выводим таблицу с использованием CSS класса
-st.markdown('<div class="centered-table">', unsafe_allow_html=True)
-st.dataframe(df_bars)
-st.markdown('</div>', unsafe_allow_html=True)
-
-# Построение ленточной диаграммы
-st.markdown("<h2 style='text-align: center;'>Распределение беженцев по регионам</h2>", unsafe_allow_html=True)
-
-# Создаем ленточную диаграмму
-fig, ax = plt.subplots(figsize=(8, 6))  # Увеличение размеров фигуры
-bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='skyblue')
-ax.set_xlabel('Количество беженцев, %')
-ax.set_ylabel('Регион')
-# ax.set_title('Количество беженцев в процентах по регионам')
-
-# Увеличение полей вокруг диаграммы
-plt.subplots_adjust(left=0.2, right=1.5, top=0.9, bottom=0.2)  # Увеличение полей
-
-# Добавление значений на каждый столбик
-for bar in bars:
-    width = bar.get_width()
-    ax.text(width + 0.5, bar.get_y() + bar.get_height() / 2,
-            f'{width:.0f}%', va='center', ha='left')
-
-# Отображаем диаграмму в Streamlit
-st.pyplot(fig)
+st.markdown('<div
 
 
 
