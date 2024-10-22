@@ -90,7 +90,7 @@ values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
 plt.figure(figsize=(8, 4))  # Установка размера графика
-plt.bar(categories, values, color='lightblue', width=0.5)  # Построение графика
+plt.bar(categories, values, color='blue', width=0.5)  # Построение графика
 
 # Добавление меток осей
 plt.xlabel('Период времени', fontsize=10)
