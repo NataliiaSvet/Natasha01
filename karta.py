@@ -38,7 +38,7 @@ st.components.v1.html(map_html, height=map_height, width=map_width)
 df_procent = pd.read_excel('DA_Svietashova_karta_procent.xlsx')  # Замените на ваш файл
 
 # Построение ленточной диаграммы
-st.markdown("<h2 style='text-align: center;'>Ленточная диаграмма количества беженцев по регионам</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Распределение беженцев по регионам</h2>", unsafe_allow_html=True)
 
 # Создаем ленточную диаграмму
 fig, ax = plt.subplots(figsize=(11, 7))  # Увеличение размеров фигуры
@@ -48,7 +48,7 @@ ax.set_ylabel('Регион')
 ax.set_title('Количество беженцев в процентах по регионам')
 
 # Увеличение полей вокруг диаграммы
-plt.subplots_adjust(left=0.2, right=0.9, top=0.9, bottom=0.2)  # Увеличение полей
+plt.subplots_adjust(left=0.2, right=1,5, top=0.9, bottom=0.2)  # Увеличение полей
 
 # Добавление значений на каждый столбик
 for bar in bars:
