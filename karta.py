@@ -1,9 +1,10 @@
 import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
+import matplotlib.pyplot as plt
 import streamlit as st
 
-# Загрузите ваши данные
+# Загрузка первого файла с координатами регионов и количеством беженцев
 df = pd.read_excel('DA_Svietashova_karta.xlsx')  # Замените на ваш файл
 
 # Создание карты
@@ -20,15 +21,10 @@ for index, row in df.iterrows():
         icon=folium.Icon(color='blue')
     ).add_to(marker_cluster)
 
-import streamlit as st
-
-# Используем HTML для заголовка
+# Отображение карты в Streamlit
 st.markdown("<h1 style='text-align: center;'>Карта количества беженцев в Чехии по регионам</h1>", unsafe_allow_html=True)
 
-# Остальной код для отображения карты
-
-
-# Установите ширину и высоту карты
+# Установите размеры карты
 map_height = 600  # Установите желаемую высоту карты
 map_width = 800   # Установите желаемую ширину карты
 
@@ -37,6 +33,23 @@ map_html = m._repr_html_()
 
 # Вставьте HTML-код карты
 st.components.v1.html(map_html, height=map_height, width=map_width)
+
+# Загрузка второго файла с процентами
+df_procent = pd.read_excel('DA_Svietashova_karta_procent.xlsx')  # Замените на ваш файл
+
+# Построение ленточной диаграммы
+st.markdown("<h2 style='text-align: center;'>Ленточная диаграмма количества беженцев по регионам</h2>", unsafe_allow_html=True)
+
+# Создаем ленточную диаграмму
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='skyblue')
+ax.set_xlabel('Количество беженцев, %')
+ax.set_ylabel('Регион')
+ax.set_title('Количество беженцев в процентах по регионам')
+
+# Отображаем диаграмму в Streamlit
+st.pyplot(fig)
+
 
 
 
