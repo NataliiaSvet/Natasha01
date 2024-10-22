@@ -174,9 +174,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Выводим таблицу с использованием CSS класса
-st.markdown('<div
-
-
+st.markdown('<div class="centered-table">')
+st.table(df_procent)  # предположим, df_procent - это DataFrame с процентами
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 
