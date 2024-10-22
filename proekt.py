@@ -163,6 +163,21 @@ st.components.v1.html(map_html, height=map_height, width=map_width)
 # Загрузка второго файла с процентами
 df_procent = pd.read_excel('DA_Svietashova_karta_procent.xlsx')  # Замените на ваш файл
 
+# Центрируем таблицу и задаем фиксированную ширину через HTML и CSS
+st.markdown("""
+    <style>
+    .centered-table {
+        margin: 0 auto;  /* Центрирование */
+        width: 60%;      /* Установите желаемую ширину, например 60% */
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Выводим таблицу с использованием CSS класса
+st.markdown('<div class="centered-table">', unsafe_allow_html=True)
+st.dataframe(df_bars)
+st.markdown('</div>', unsafe_allow_html=True)
+
 # Построение ленточной диаграммы
 st.markdown("<h2 style='text-align: center;'>Распределение беженцев по регионам</h2>", unsafe_allow_html=True)
 
