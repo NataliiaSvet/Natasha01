@@ -54,7 +54,7 @@ plt.subplots_adjust(left=0.2, right=0.9, top=0.9, bottom=0.2)  # Увеличе�
 for bar in bars:
     width = bar.get_width()
     ax.text(width + 0.5, bar.get_y() + bar.get_height() / 2,
-            f'{width:.1f}%', va='center', ha='left')
+            f'{width:.0f}%', va='center', ha='left')
 
 # Отображаем диаграмму в Streamlit
 st.pyplot(fig)
