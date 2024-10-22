@@ -48,7 +48,7 @@ ax.set_ylabel('Регион')
 # ax.set_title('Количество беженцев в процентах по регионам')
 
 # Увеличение полей вокруг диаграммы
-plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.3)  # Увеличение полей
+plt.subplots_adjust(left=0.1, right=1.0, top=0.9, bottom=0.3)  # Увеличение полей
 
 # Добавление значений на каждый столбик
 for bar in bars:
