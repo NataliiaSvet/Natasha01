@@ -90,7 +90,7 @@ values = df_refugees['Количество, чел.']
 
 # Построение столбчатой диаграммы
 plt.figure(figsize=(8, 4))  # Установка размера графика
-plt.bar(categories, values, color='skyblue', width=0.5)  # Построение графика
+plt.bar(categories, values, color='light blue', width=0.5)  # Построение графика
 
 # Добавление меток осей
 plt.xlabel('Период времени', fontsize=10)
@@ -150,7 +150,7 @@ st.markdown("<h2 style='text-align: center;'>Распределение беже
 
 # Создаем ленточную диаграмму
 fig, ax = plt.subplots(figsize=(10, 6))  # Увеличение размеров фигуры
-bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='Olive')
+bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='Coral')
 ax.set_xlabel('Количество беженцев, %')
 ax.set_ylabel('Регион')
 # ax.set_title('Количество беженцев в процентах по регионам')
