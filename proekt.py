@@ -12,7 +12,7 @@ rcParams['font.family'] = 'Arial'
 st.set_page_config(page_title="Анализ затрат", layout="wide")
 
 # Вывод заголовка по центру
-st.markdown("<h1 style='text-align: center; color: black;'>Расходы Чешской республики на помощь беженцам из Украины, 2022-2024 гг.</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Расходы Чешской республики, связанные с военным конфликтом в Украине, 2022-2024 гг.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
@@ -77,7 +77,7 @@ st.markdown("**Примечание:** Данные основаны на офи
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Заголовок для второй диаграммы
-st.markdown("<h1 style='text-align: center; color: black;'>Количество беженцев в Чешской республике с февраля 2022 г.</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Количество лиц в Чешской республике, получивших временную защиту с февраля 2022 г.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных для столбчатой диаграммы
 df_refugees = pd.read_excel('DA_Svietashova_gist.xlsx')
@@ -125,12 +125,12 @@ marker_cluster = MarkerCluster().add_to(m)
 for index, row in df.iterrows():
     folium.Marker(
         location=[row['Широта'], row['Долгота']],  # Убедитесь, что эти колонки есть в вашем DataFrame
-        popup=f"{row['Регион']}: {row['Количество беженцев']}",
+        popup=f"{row['Регион']}: {row['Количество лиц с временной защитой']}",
         icon=folium.Icon(color='blue')
     ).add_to(marker_cluster)
 
 # Отображение карты в Streamlit
-st.markdown("<h1 style='text-align: center;'>Карта количества беженцев в Чехии по регионам</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Карта количества лиц с временной защитой в Чехии по регионам</h1>", unsafe_allow_html=True)
 
 # Установите размеры карты
 map_height = 600  # Установите желаемую высоту карты
@@ -146,14 +146,14 @@ st.components.v1.html(map_html, height=map_height, width=map_width)
 df_procent = pd.read_excel('DA_Svietashova_karta_procent.xlsx')  # Замените на ваш файл
 
 # Построение ленточной диаграммы
-st.markdown("<h2 style='text-align: center;'>Распределение беженцев по регионам</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Распределение лиц с временной защитой по регионам</h2>", unsafe_allow_html=True)
 
 # Создаем ленточную диаграмму
 fig, ax = plt.subplots(figsize=(10, 6))  # Увеличение размеров фигуры
-bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='Coral')
-ax.set_xlabel('Количество беженцев, %')
+bars = ax.barh(df_procent['Регион'], df_procent['Количество лиц с ВЗ, %'], color='Coral')
+ax.set_xlabel('Количество лиц с ВЗ, %')
 ax.set_ylabel('Регион')
-# ax.set_title('Количество беженцев в процентах по регионам')
+# ax.set_title('Количество лиц с ВЗ в процентах по регионам')
 
 # Увеличение полей вокруг диаграммы
 plt.subplots_adjust(left=0.2, right=1.3, top=0.9, bottom=0.2)  # Увеличение полей
