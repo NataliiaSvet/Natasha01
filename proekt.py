@@ -180,12 +180,11 @@ plt.rcParams['font.family'] = 'Arial'
 
 # Заголовок для диаграммы
 st.markdown(
-    "<h2 style='text-align: center; color: black; margin-bottom: 0;'>"
+    "<h2 style='text-align: center; color: black;'>"
     "Отрасли экономики Чешской республики,<br>в которых работают мигранты из Украины "
     "с временной защитой</h2>", 
     unsafe_allow_html=True
 )
-
 
 # Загрузка данных из файла Excel
 file_path = 'DA_Svietashova_diagramma2.xlsx'
@@ -202,42 +201,47 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.3  # Ширина столбцов
+width = 0.3  # Уменьшенная ширина столбцов
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
 # Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(8, 4))
+fig = plt.figure(figsize=(8, 4))  # Уменьшенный размер графика
 ax = fig.add_subplot(111, projection='3d')
 
+# Поднимаем график, добавляя смещение по оси Y
+y_offset = 0.5  # Задайте значение для смещения по оси Y
 for i in range(num_bars):
     x = x_positions[i]
-    y = 0
+    y = y_offset  # Используем смещение
     z = 0
     ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
-    ax.text(x, y, heights.iloc[i] + 1, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=6)
+    # Проценты над столбцами
+    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=8)
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=8)
 ax.set_yticks([])
 ax.set_zticks([])
 
-# Трёхстрочный заголовок
-# ax.set_title("Отрасли экономики Чешской республики,\nв которых работают мигранты из Украины\nс временной защитой",
-#             fontsize=14, fontweight='bold', loc='center')
-
-# Уменьшение отступов
-plt.subplots_adjust(left=0.1, right=0.9, top=0.5, bottom=0.1)  # Отрегулируйте эти значения
-
 # Установка пределов оси X
 ax.set_xlim([-0.5, num_bars - 0.5])
+ax.set_ylim([-1, 1])  # Установите пределы оси Y, чтобы поднять график
 
 # Угол поворота графика
 ax.view_init(elev=20, azim=85)
 
 # Удаление сетки координат
 ax.grid(False)
+
+
+
+
+
+
+
+
 
 # Отображение графика в Streamlit
 st.pyplot(fig)
