@@ -160,9 +160,6 @@ ax.set_ylabel('Регион')
 # Увеличение полей вокруг диаграммы
 plt.subplots_adjust(left=0.2, right=1.3, top=0.9, bottom=0.2)  # Увеличение полей
 
-# Отступ между графиками
-st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
-
 # Добавление значений на каждый столбик
 for bar in bars:
     width = bar.get_width()
@@ -172,7 +169,8 @@ for bar in bars:
 # Отображаем диаграмму в Streamlit
 st.pyplot(fig)
 
-
+# Отступ между графиками
+st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Установка шрифта для кириллицы
 plt.rcParams['font.family'] = 'Arial'
