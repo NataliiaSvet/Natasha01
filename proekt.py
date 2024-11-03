@@ -178,7 +178,6 @@ plt.rcParams['font.family'] = 'Arial'
 # Заголовок Streamlit-приложения
 # st.title("Отрасли экономики Чешской республики, в которых работают мигранты из Украины с временной защитой")
 
-# Заголовок для диаграммы
 st.markdown(
     "<h2 style='text-align: center; color: black;'>"
     "Отрасли экономики Чешской республики,<br>в которых работают мигранты из Украины "
@@ -201,19 +200,19 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.2  # Уменьшенная ширина столбцов для уменьшения масштаба
+width = 0.2  # Уменьшенная ширина столбцов
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
 # Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(5, 2.5))  # Уменьшенный размер графика
+fig = plt.figure(figsize=(5, 3))  # Уменьшенный размер графика
 ax = fig.add_subplot(111, projection='3d')
 
-# Поднимаем график, добавляя смещение по оси Y
-y_offset = 0.4  # Задайте значение для смещения по оси Y
+# Построение цилиндрических столбцов
+y_offset = 0.4  # Смещение по оси Y
 for i in range(num_bars):
     x = x_positions[i]
-    y = y_offset  # Используем смещение
+    y = y_offset  # Смещение по оси Y
     z = 0
     ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
     # Проценты над столбцами
@@ -221,23 +220,23 @@ for i in range(num_bars):
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)  # Удален labelpad
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
 
 ax.set_yticks([])
 ax.set_zticks([])
 
-# Установка пределов оси X
+# Установка пределов осей
 ax.set_xlim([-0.5, num_bars - 0.5])
-ax.set_ylim([-0.5, 1.5])  # Установите пределы оси Y, чтобы поднять график
+ax.set_ylim([-0.5, 1])  # Сузили диапазон по оси Y
+
+# Регулируем отступы между подписями и графиком
+ax.tick_params(axis='x', pad=-2)  # Параметр pad уменьшает отступ подписей по оси X
 
 # Угол поворота графика
 ax.view_init(elev=20, azim=75)
 
 # Удаление сетки координат
 ax.grid(False)
-
-# Регулировка отступов
-plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.3)  # Уменьшите bottom для уменьшения расстояния между графиком и подписями
 
 # Отображение графика в Streamlit
 st.pyplot(fig)
