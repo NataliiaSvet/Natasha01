@@ -228,7 +228,7 @@ ax.set_zticks([])
 #             fontsize=14, fontweight='bold', loc='center')
 
 # Уменьшение отступов
-plt.subplots_adjust(left=0.1, right=0.9, top=0.1, bottom=0.1)  # Отрегулируйте эти значения
+plt.subplots_adjust(left=0.1, right=0.9, top=0.3, bottom=0.1)  # Отрегулируйте эти значения
 
 # Установка пределов оси X
 ax.set_xlim([-0.5, num_bars - 0.5])
