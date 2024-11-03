@@ -201,7 +201,7 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.4  # Уменьшенная ширина столбцов
+width = 0.2  # Уменьшенная ширина столбцов для уменьшения масштаба
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
@@ -210,7 +210,7 @@ fig = plt.figure(figsize=(6, 3))  # Уменьшенный размер граф
 ax = fig.add_subplot(111, projection='3d')
 
 # Поднимаем график, добавляя смещение по оси Y
-y_offset = 0.2  # Задайте значение для смещения по оси Y
+y_offset = 0.4  # Задайте значение для смещения по оси Y
 for i in range(num_bars):
     x = x_positions[i]
     y = y_offset  # Используем смещение
@@ -221,9 +221,7 @@ for i in range(num_bars):
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6, labelpad=1)  # labelpad уменьшает отступ
-ax.set_yticks([])
-ax.set_zticks([])
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
 
 # Смещение подписей по оси X
 for tick in ax.get_xticklabels():
@@ -241,7 +239,6 @@ ax.view_init(elev=20, azim=75)
 
 # Удаление сетки координат
 ax.grid(False)
-
 
 # Отображение графика в Streamlit
 st.pyplot(fig)
