@@ -225,7 +225,7 @@ ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
 
 # Поднимаем подписи по оси X
 for tick in ax.get_xticklabels():
-    tick.set_position((tick.get_position()[0], 0.5))  # Увеличиваем Y-координату
+    tick.set_position((tick.get_position()[0], 1))  # Увеличиваем Y-координату
 
 ax.set_yticks([])
 ax.set_zticks([])
