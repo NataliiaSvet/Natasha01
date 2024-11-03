@@ -179,7 +179,13 @@ plt.rcParams['font.family'] = 'Arial'
 # st.title("Отрасли экономики Чешской республики, в которых работают мигранты из Украины с временной защитой")
 
 # Заголовок для диаграммы
-st.markdown("<h2 style='text-align: center; color: black;'>Отрасли экономики Чешской республики, в которых работают мигранты из Украины с временной защитой</h1>", unsafe_allow_html=True)
+st.markdown(
+    "<h2 style='text-align: center; color: black; margin-bottom: 0;'>"
+    "Отрасли экономики Чешской республики,<br>в которых работают мигранты из Украины "
+    "с временной защитой</h2>", 
+    unsafe_allow_html=True
+)
+
 
 # Загрузка данных из файла Excel
 file_path = 'DA_Svietashova_diagramma2.xlsx'
@@ -196,7 +202,7 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.2  # Ширина столбцов
+width = 0.3  # Ширина столбцов
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
