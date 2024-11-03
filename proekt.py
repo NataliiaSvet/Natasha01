@@ -201,7 +201,7 @@ heights = data_sorted['Доля трудоустроенных']  # Высота
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
 # Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(12, 8))
+fig = plt.figure(figsize=(10, 6))
 ax = fig.add_subplot(111, projection='3d')
 
 for i in range(num_bars):
