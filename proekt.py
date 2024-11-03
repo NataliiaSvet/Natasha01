@@ -210,7 +210,7 @@ fig = plt.figure(figsize=(6, 4))  # Уменьшенный размер граф
 ax = fig.add_subplot(111, projection='3d')
 
 # Поднимаем график, добавляя смещение по оси Y
-y_offset = 0.4  # Задайте значение для смещения по оси Y
+y_offset = 1  # Задайте значение для смещения по оси Y
 for i in range(num_bars):
     x = x_positions[i]
     y = y_offset  # Используем смещение
