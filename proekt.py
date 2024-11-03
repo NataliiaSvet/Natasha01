@@ -206,11 +206,11 @@ heights = data_sorted['Доля трудоустроенных']  # Высота
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
 # Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(8, 4))  # Уменьшенный размер графика
+fig = plt.figure(figsize=(6, 3))  # Уменьшенный размер графика
 ax = fig.add_subplot(111, projection='3d')
 
 # Поднимаем график, добавляя смещение по оси Y
-y_offset = 0.4  # Задайте значение для смещения по оси Y
+y_offset = 0.2  # Задайте значение для смещения по оси Y
 for i in range(num_bars):
     x = x_positions[i]
     y = y_offset  # Используем смещение
