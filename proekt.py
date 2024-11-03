@@ -221,7 +221,7 @@ for i in range(num_bars):
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6, labelpad=1)  # labelpad уменьшает отступ
 ax.set_yticks([])
 ax.set_zticks([])
 
