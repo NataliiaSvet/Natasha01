@@ -209,11 +209,11 @@ for i in range(num_bars):
     y = 0
     z = 0
     ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
-    ax.text(x, y, heights.iloc[i] + 1, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=12)
+    ax.text(x, y, heights.iloc[i] + 1, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=8)
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=10)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=8)
 ax.set_yticks([])
 ax.set_zticks([])
 
@@ -236,7 +236,8 @@ st.pyplot(fig)
 # Добавление текста под таблицей
 st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>Украинские мигранты трудоустроены во всех наиболее важных отраслях экономики ЧР, которые долгое время требовали дополнительную рабочую силу. </div>""", unsafe_allow_html=True)
 
-
+# Отступ между графиками
+st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 
 
