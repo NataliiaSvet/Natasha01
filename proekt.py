@@ -221,11 +221,11 @@ for i in range(num_bars):
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6, labelpad=1)  # Уменьшенный labelpad
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)  # Удален labelpad
 
 # Поднимаем подписи по оси X ближе к графику
 for tick in ax.get_xticklabels():
-    tick.set_position((tick.get_position()[0], 0.3))  # Регулируйте значение для поднятия
+    tick.set_y(0.1)  # Регулируйте значение для поднятия
 
 ax.set_yticks([])
 ax.set_zticks([])
