@@ -201,12 +201,12 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.4  # Уменьшенная ширина столбцов для уменьшения масштаба
+width = 0.2  # Уменьшенная ширина столбцов для уменьшения масштаба
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
 # Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(6, 3))  # Уменьшенный размер графика
+fig = plt.figure(figsize=(5, 2.5))  # Уменьшенный размер графика
 ax = fig.add_subplot(111, projection='3d')
 
 # Поднимаем график, добавляя смещение по оси Y
@@ -223,9 +223,9 @@ for i in range(num_bars):
 ax.set_xticks(x_positions)
 ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
 
-# Смещение подписей по оси X
+# Поднимаем подписи по оси X
 for tick in ax.get_xticklabels():
-    tick.set_y(-1)  # Измените значение для поднятия подписей вверх (попробуйте разные значения)
+    tick.set_y(-0.2)  # Измените значение для поднятия подписей вверх
 
 ax.set_yticks([])
 ax.set_zticks([])
