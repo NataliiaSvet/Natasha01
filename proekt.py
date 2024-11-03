@@ -230,8 +230,7 @@ ax.grid(False)
 st.pyplot(fig)
 
 # Добавление текста под таблицей
-st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>
-Украинские мигранты трудоустроены во всех наиболее важных отраслях экономики ЧР, которыедолгое время требовали дополнительную рабочую силу. </div>""", unsafe_allow_html=True)
+st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>Украинские мигранты трудоустроены во всех наиболее важных отраслях экономики ЧР, которые долгое время требовали дополнительную рабочую силу. </div>""", unsafe_allow_html=True)
 
 
 
