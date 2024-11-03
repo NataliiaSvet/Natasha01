@@ -230,7 +230,7 @@ ax.set_xlim([-0.5, num_bars - 0.5])
 ax.set_ylim([-1, 1])  # Установите пределы оси Y, чтобы поднять график
 
 # Угол поворота графика
-ax.view_init(elev=20, azim=85)
+ax.view_init(elev=20, azim=65)
 
 # Удаление сетки координат
 ax.grid(False)
