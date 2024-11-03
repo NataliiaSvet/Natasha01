@@ -225,7 +225,7 @@ ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
 
 # Смещение подписей по оси X
 for tick in ax.get_xticklabels():
-    tick.set_y(-0.1)  # Измените значение для поднятия подписей вверх (попробуйте разные значения)
+    tick.set_y(-0.5)  # Измените значение для поднятия подписей вверх (попробуйте разные значения)
 
 ax.set_yticks([])
 ax.set_zticks([])
