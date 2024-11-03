@@ -217,15 +217,15 @@ for i in range(num_bars):
     z = 0
     ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
     # Проценты над столбцами
-    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=4)
+    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=6)
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=4)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
 
 # Поднимаем подписи по оси X
 for tick in ax.get_xticklabels():
-    tick.set_y(-0.2)  # Измените значение для поднятия подписей вверх
+    tick.set_y(-2)  # Измените значение для поднятия подписей вверх
 
 ax.set_yticks([])
 ax.set_zticks([])
