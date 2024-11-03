@@ -201,7 +201,7 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.3  # Уменьшенная ширина столбцов
+width = 0.4  # Уменьшенная ширина столбцов
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
@@ -210,7 +210,7 @@ fig = plt.figure(figsize=(8, 4))  # Уменьшенный размер граф
 ax = fig.add_subplot(111, projection='3d')
 
 # Поднимаем график, добавляя смещение по оси Y
-y_offset = 0.1  # Задайте значение для смещения по оси Y
+y_offset = 0.4  # Задайте значение для смещения по оси Y
 for i in range(num_bars):
     x = x_positions[i]
     y = y_offset  # Используем смещение
