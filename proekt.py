@@ -200,7 +200,7 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.2  # Уменьшенная ширина столбцов
+width = 0.4  # Уменьшенная ширина столбцов
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
