@@ -215,7 +215,7 @@ ax.set_zticks([])
 
 # Трёхстрочный заголовок
 # ax.set_title("Отрасли экономики Чешской республики,\nв которых работают мигранты из Украины\nс временной защитой",
-             fontsize=14, fontweight='bold', loc='center')
+#             fontsize=14, fontweight='bold', loc='center')
 
 # Установка пределов оси X
 ax.set_xlim([-0.5, num_bars - 0.5])
