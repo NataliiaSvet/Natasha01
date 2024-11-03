@@ -225,6 +225,13 @@ ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6, label
 ax.set_yticks([])
 ax.set_zticks([])
 
+# Смещение подписей по оси X
+for tick in ax.get_xticklabels():
+    tick.set_y(-0.1)  # Измените значение для поднятия подписей вверх (попробуйте разные значения)
+
+ax.set_yticks([])
+ax.set_zticks([])
+
 # Установка пределов оси X
 ax.set_xlim([-0.5, num_bars - 0.5])
 ax.set_ylim([-1, 1])  # Установите пределы оси Y, чтобы поднять график
