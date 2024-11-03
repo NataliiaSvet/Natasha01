@@ -237,7 +237,7 @@ ax.view_init(elev=20, azim=75)
 ax.grid(False)
 
 # Регулировка отступов
-plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.3)  # Уменьшите bottom для уменьшения расстояния между графиком и подписями
+plt.subplots_adjust(left=0.1, right=0.2, top=0.2, bottom=0.3)  # Уменьшите bottom для уменьшения расстояния между графиком и подписями
 
 # Отображение графика в Streamlit
 st.pyplot(fig)
