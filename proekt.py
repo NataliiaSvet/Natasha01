@@ -241,7 +241,7 @@ ax.view_init(elev=20, azim=75)
 ax.grid(False)
 
 # Удаление рамок вокруг графика
-plt.subplots_adjust(left=0.2, right=0.6, top=0.6, bottom=0.2)  # Регулировка отступов
+plt.subplots_adjust(left=0.2, right=0.7, top=0.7, bottom=0.2)  # Регулировка отступов
 
 # Отображение графика в Streamlit
 st.pyplot(fig)
