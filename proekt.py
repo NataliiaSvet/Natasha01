@@ -217,11 +217,11 @@ for i in range(num_bars):
     z = 0
     ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
     # Проценты над столбцами
-    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=8)
+    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=6)
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=8)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
 ax.set_yticks([])
 ax.set_zticks([])
 
@@ -230,7 +230,7 @@ ax.set_xlim([-0.5, num_bars - 0.5])
 ax.set_ylim([-1, 1])  # Установите пределы оси Y, чтобы поднять график
 
 # Угол поворота графика
-ax.view_init(elev=20, azim=65)
+ax.view_init(elev=20, azim=75)
 
 # Удаление сетки координат
 ax.grid(False)
