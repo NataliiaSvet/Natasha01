@@ -201,7 +201,7 @@ heights = data_sorted['Доля трудоустроенных']  # Высота
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
 # Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(8, 4))
+fig = plt.figure(figsize=(6, 2))
 ax = fig.add_subplot(111, projection='3d')
 
 for i in range(num_bars):
@@ -209,11 +209,11 @@ for i in range(num_bars):
     y = 0
     z = 0
     ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
-    ax.text(x, y, heights.iloc[i] + 1, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=6)
+    ax.text(x, y, heights.iloc[i] + 1, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=4)
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=4)
 ax.set_yticks([])
 ax.set_zticks([])
 
