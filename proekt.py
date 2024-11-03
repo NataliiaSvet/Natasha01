@@ -201,7 +201,7 @@ data_sorted = data.sort_values(by='Доля трудоустроенных')  # 
 # Параметры для цилиндрических столбцов
 num_bars = len(data_sorted)
 x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.4  # Уменьшенная ширина столбцов для уменьшения масштаба
+width = 0.2  # Уменьшенная ширина столбцов для уменьшения масштаба
 heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
@@ -217,11 +217,11 @@ for i in range(num_bars):
     z = 0
     ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
     # Проценты над столбцами
-    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=4)
+    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=3)
 
 # Настройки осей
 ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=4)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=3)
 
 # Поднимаем подписи по оси X
 for tick in ax.get_xticklabels():
