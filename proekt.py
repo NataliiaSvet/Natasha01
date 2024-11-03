@@ -210,7 +210,7 @@ fig = plt.figure(figsize=(8, 4))  # Уменьшенный размер граф
 ax = fig.add_subplot(111, projection='3d')
 
 # Поднимаем график, добавляя смещение по оси Y
-y_offset = 0.5  # Задайте значение для смещения по оси Y
+y_offset = 0.1  # Задайте значение для смещения по оси Y
 for i in range(num_bars):
     x = x_positions[i]
     y = y_offset  # Используем смещение
@@ -234,13 +234,6 @@ ax.view_init(elev=20, azim=85)
 
 # Удаление сетки координат
 ax.grid(False)
-
-
-
-
-
-
-
 
 
 # Отображение графика в Streamlit
