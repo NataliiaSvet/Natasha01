@@ -151,7 +151,7 @@ df_procent = pd.read_excel('DA_Svietashova_karta_procent.xlsx')  # Замени�
 st.markdown("<h2 style='text-align: center;'>Распределение лиц с временной защитой по регионам</h2>", unsafe_allow_html=True)
 
 # Создаем ленточную диаграмму
-fig, ax = plt.subplots(figsize=(10, 6))  # Увеличение размеров фигуры
+fig, ax = plt.subplots(figsize=(8, 4))  # Увеличение размеров фигуры
 bars = ax.barh(df_procent['Регион'], df_procent['Количество беженцев, %'], color='Coral')
 ax.set_xlabel('Количество беженцев, %')
 ax.set_ylabel('Регион')
