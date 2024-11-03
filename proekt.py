@@ -227,6 +227,9 @@ ax.set_zticks([])
 # ax.set_title("Отрасли экономики Чешской республики,\nв которых работают мигранты из Украины\nс временной защитой",
 #             fontsize=14, fontweight='bold', loc='center')
 
+# Уменьшение отступов
+plt.subplots_adjust(left=0.1, right=0.6, top=0.5, bottom=0.1)  # Отрегулируйте эти значения
+
 # Установка пределов оси X
 ax.set_xlim([-0.5, num_bars - 0.5])
 
