@@ -4,6 +4,8 @@ from folium.plugins import MarkerCluster
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import streamlit as st
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
 
 # Выбор шрифта, поддерживающего кириллицу (например, Arial)
 rcParams['font.family'] = 'Arial'
@@ -167,6 +169,65 @@ for bar in bars:
 # Отображаем диаграмму в Streamlit
 st.pyplot(fig)
 
+
+
+# Установка шрифта для кириллицы
+plt.rcParams['font.family'] = 'Arial'
+
+# Заголовок Streamlit-приложения
+st.title("Отрасли экономики Чешской республики, в которых работают мигранты из Украины с временной защитой")
+
+# Загрузка данных из файла Excel
+file_path = 'DA_Svietashova_diagramma2.xlsx'
+df = pd.read_excel(file_path)
+
+# Назначение колонок (проверьте, чтобы названия совпадали с вашими данными)
+directions = df['Направления экономики ЧР']
+employment_rates = df['Доля трудоустроенных особ с ВЗ из Украины']
+
+# Создание DataFrame и сортировка по значениям трудоустройства
+data = pd.DataFrame({'Направления': directions, 'Доля трудоустроенных': employment_rates})
+data_sorted = data.sort_values(by='Доля трудоустроенных')  # Сортировка по возрастанию
+
+# Параметры для цилиндрических столбцов
+num_bars = len(data_sorted)
+x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
+width = 0.4  # Ширина столбцов
+heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
+directions_sorted = data_sorted['Направления']  # Сортированные направления
+
+# Построение объемного графика с цилиндрическими столбцами
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+for i in range(num_bars):
+    x = x_positions[i]
+    y = 0
+    z = 0
+    ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
+    ax.text(x, y, heights.iloc[i] + 1, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=12)
+
+# Настройки осей
+ax.set_xticks(x_positions)
+ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=10)
+ax.set_yticks([])
+ax.set_zticks([])
+
+# Трёхстрочный заголовок
+ax.set_title("Отрасли экономики Чешской республики,\nв которых работают мигранты из Украины\nс временной защитой",
+             fontsize=14, fontweight='bold', loc='center')
+
+# Установка пределов оси X
+ax.set_xlim([-0.5, num_bars - 0.5])
+
+# Угол поворота графика
+ax.view_init(elev=20, azim=85)
+
+# Удаление сетки координат
+ax.grid(False)
+
+# Отображение графика в Streamlit
+st.pyplot(fig)
 
 
 
