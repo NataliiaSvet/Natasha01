@@ -206,7 +206,7 @@ heights = data_sorted['Доля трудоустроенных']  # Высота
 directions_sorted = data_sorted['Направления']  # Сортированные направления
 
 # Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(5, 3))  # Уменьшенный размер графика
+fig = plt.figure(figsize=(4, 3))  # Уменьшенный размер графика
 ax = fig.add_subplot(111, projection='3d')
 
 # Поднимаем график, добавляя смещение по оси Y
@@ -241,7 +241,7 @@ ax.view_init(elev=20, azim=75)
 ax.grid(False)
 
 # Удаление рамок вокруг графика
-plt.subplots_adjust(left=0.2, right=0.5, top=0.5, bottom=0.2)  # Регулировка отступов
+plt.subplots_adjust(left=0.1, right=0.4, top=0.4, bottom=0.1)  # Регулировка отступов
 
 # Отображение графика в Streamlit
 st.pyplot(fig)
