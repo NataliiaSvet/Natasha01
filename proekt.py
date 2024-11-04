@@ -197,58 +197,6 @@ employment_rates = df['Доля трудоустроенных особ с ВЗ 
 data = pd.DataFrame({'Направления': directions, 'Доля трудоустроенных': employment_rates})
 data_sorted = data.sort_values(by='Доля трудоустроенных')  # Сортировка по возрастанию
 
-# Параметры для цилиндрических столбцов
-num_bars = len(data_sorted)
-x_positions = np.arange(num_bars)  # Позиции столбцов по оси X
-width = 0.4  # Уменьшенная ширина столбцов
-heights = data_sorted['Доля трудоустроенных']  # Высота столбцов (цилиндров)
-directions_sorted = data_sorted['Направления']  # Сортированные направления
-
-# Построение объемного графика с цилиндрическими столбцами
-fig = plt.figure(figsize=(6, 3))  # Уменьшенный размер графика
-ax = fig.add_subplot(111, projection='3d')
-
-# Построение цилиндрических столбцов
-y_offset = 0.4  # Смещение по оси Y
-for i in range(num_bars):
-    x = x_positions[i]
-    y = y_offset  # Смещение по оси Y
-    z = 0
-    ax.bar3d(x, y, z, width, width, heights.iloc[i], color='skyblue', edgecolor='gray', shade=True)
-    # Проценты над столбцами
-    ax.text(x, y, heights.iloc[i] + 0.5, f'{int(heights.iloc[i])}%', ha='center', va='bottom', fontsize=6)
-
-# Настройки осей
-ax.set_xticks(x_positions)
-ax.set_xticklabels(directions_sorted, rotation=45, ha='right', fontsize=6)
-
-ax.set_yticks([])
-ax.set_zticks([])
-
-# Установка пределов осей
-ax.set_xlim([-0.5, num_bars - 0.5])
-ax.set_ylim([-0.5, 1.0])  # Сузили диапазон по оси Y
-
-# Регулируем отступы между подписями и графиком
-ax.tick_params(axis='x', pad=-7)  # Параметр pad уменьшает отступ подписей по оси X
-
-# Угол поворота графика
-ax.view_init(elev=20, azim=75)
-
-# Удаление сетки координат
-ax.grid(False)
-
-# Отображение графика в Streamlit
-st.pyplot(fig)
-
-
-
-# Добавление текста под таблицей
-st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>Украинские мигранты трудоустроены во всех наиболее важных отраслях экономики ЧР, которые долгое время требовали дополнительную рабочую силу. </div>""", unsafe_allow_html=True)
-
-# Отступ между графиками
-st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
-
 # Загружаем данные (предположим, что данные уже в DataFrame data_sorted)
 # Названия отраслей и доля трудоустроенных
 labels = data_sorted['Направления']
@@ -274,5 +222,10 @@ plt.title("Доля трудоустроенных украинских мигр
 st.pyplot(fig)
 
 
+# Добавление текста под таблицей
+st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>Украинские мигранты трудоустроены во всех наиболее важных отраслях экономики ЧР, которые долгое время требовали дополнительную рабочую силу. </div>""", unsafe_allow_html=True)
+
+# Отступ между графиками
+st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
    
