@@ -197,33 +197,32 @@ employment_rates = df['Доля трудоустроенных особ с ВЗ 
 data = pd.DataFrame({'Направления': directions, 'Доля трудоустроенных': employment_rates})
 data_sorted = data.sort_values(by='Доля трудоустроенных')  # Сортировка по возрастанию
 
-# Загружаем данные (предположим, что данные уже в DataFrame data_sorted)
-# Названия отраслей и доля трудоустроенных
+# Предполагается, что данные уже загружены в data_sorted
 labels = data_sorted['Направления']
 sizes = data_sorted['Доля трудоустроенных']
 
-# Устанавливаем цветовую палитру для вложенных кругов
-colors = plt.cm.Paired(range(len(sizes)))  # Используем Paired для сочетающихся цветов
+# Цветовая палитра
+colors = plt.cm.tab20(range(len(sizes)))  # Более яркая палитра для четкости
 
-fig, ax = plt.subplots(figsize=(3, 3), subplot_kw=dict(aspect="equal"))
+# Создаем фигуру с повышенным dpi
+fig, ax = plt.subplots(figsize=(4, 4), dpi=150, subplot_kw=dict(aspect="equal"))
 
-# Внутренний круг - доля трудоустроенных
-ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.8,
-       wedgeprops=dict(width=0.3, edgecolor='w'), labeldistance=1.1,
-       textprops={'fontsize': 4})  # Уменьшаем шрифт для внутреннего круга
+# Внутренний круг
+ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
+       wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.2,
+       textprops={'fontsize': 6, 'weight': 'bold'})  # Более четкий шрифт
 
-# Внешний круг - указывает доли трудоустройства в процентах
-inner_sizes = sizes / sizes.sum()  # Доли для внешнего круга
-ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.7,
-       startangle=90, colors=colors, radius=0.5, wedgeprops=dict(width=0.3, edgecolor='w'),
-       textprops={'fontsize': 4})  # Уменьшаем шрифт для внешнего круга
+# Внешний круг - с процентами
+inner_sizes = sizes / sizes.sum()
+ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.6,
+       startangle=90, colors=colors, radius=0.6, wedgeprops=dict(width=0.2, edgecolor='w'),
+       textprops={'fontsize': 5, 'weight': 'bold'})  # Четкость внешнего текста
 
-# Добавляем заголовок
-# plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР")
+# Заголовок с улучшенной четкостью
+plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР", fontsize=10, weight='bold')
 
-# Отображение круговой диаграммы в Streamlit
+# Отображение в Streamlit
 st.pyplot(fig)
-
 
 # Добавление текста под таблицей
 st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>Украинские мигранты трудоустроены во всех наиболее важных отраслях экономики ЧР, которые долгое время требовали дополнительную рабочую силу. </div>""", unsafe_allow_html=True)
