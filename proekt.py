@@ -216,7 +216,7 @@ ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.
        startangle=90, colors=colors, radius=0.7, wedgeprops=dict(width=0.3, edgecolor='w'))
 
 # Добавляем заголовок
-plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР")
+# plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР")
 
 # Отображение круговой диаграммы в Streamlit
 st.pyplot(fig)
