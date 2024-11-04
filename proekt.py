@@ -205,12 +205,12 @@ sizes = data_sorted['Доля трудоустроенных']
 # Устанавливаем цветовую палитру для вложенных кругов
 colors = plt.cm.Paired(range(len(sizes)))  # Используем Paired для сочетающихся цветов
 
-fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(aspect="equal"))
+fig, ax = plt.subplots(figsize=(3, 3), subplot_kw=dict(aspect="equal"))
 
 # Внутренний круг - доля трудоустроенных
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=1,
        wedgeprops=dict(width=0.3, edgecolor='w'), labeldistance=1.1,
-       textprops={'fontsize': 8})  # Уменьшаем шрифт для внутреннего круга
+       textprops={'fontsize': 6})  # Уменьшаем шрифт для внутреннего круга
 
 # Внешний круг - указывает доли трудоустройства в процентах
 inner_sizes = sizes / sizes.sum()  # Доли для внешнего круга
