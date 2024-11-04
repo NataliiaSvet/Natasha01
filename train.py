@@ -1,3 +1,12 @@
+import pandas as pd
+import folium
+from folium.plugins import MarkerCluster
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+import streamlit as st
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+
 import matplotlib.pyplot as plt
 
 # Загружаем данные (предположим, что данные уже в DataFrame data_sorted)
