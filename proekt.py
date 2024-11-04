@@ -208,12 +208,15 @@ colors = plt.cm.Paired(range(len(sizes)))  # Используем Paired для 
 fig, ax = plt.subplots(figsize=(4, 4), subplot_kw=dict(aspect="equal"))
 
 # Внутренний круг - доля трудоустроенных
-ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=1, wedgeprops=dict(width=0.3, edgecolor='w'))
+ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=1,
+       wedgeprops=dict(width=0.3, edgecolor='w'), labeldistance=1.1,
+       textprops={'fontsize': 8})  # Уменьшаем шрифт для внутреннего круга
 
 # Внешний круг - указывает доли трудоустройства в процентах
 inner_sizes = sizes / sizes.sum()  # Доли для внешнего круга
 ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.7,
-       startangle=90, colors=colors, radius=0.7, wedgeprops=dict(width=0.3, edgecolor='w'))
+       startangle=90, colors=colors, radius=0.7, wedgeprops=dict(width=0.3, edgecolor='w'),
+       textprops={'fontsize': 6})  # Уменьшаем шрифт для внешнего круга
 
 # Добавляем заголовок
 # plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР")
