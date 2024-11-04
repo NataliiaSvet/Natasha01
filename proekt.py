@@ -219,7 +219,7 @@ ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.
        textprops={'fontsize': 5, 'weight': 'bold'})  # Четкость внешнего текста
 
 # Заголовок с улучшенной четкостью
-plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР", fontsize=10, weight='bold')
+# plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР", fontsize=10, weight='bold')
 
 # Отображение в Streamlit
 st.pyplot(fig)
