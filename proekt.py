@@ -205,7 +205,7 @@ sizes = data_sorted['Доля трудоустроенных']
 colors = plt.cm.tab20(range(len(sizes)))  # Более яркая палитра для четкости
 
 # Создаем фигуру с повышенным dpi
-fig, ax = plt.subplots(figsize=(7, 2.5), dpi=150, subplot_kw=dict(aspect="equal"))
+fig, ax = plt.subplots(figsize=(6, 2), dpi=150, subplot_kw=dict(aspect="equal"))
 
 # Внутренний круг
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
