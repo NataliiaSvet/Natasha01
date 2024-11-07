@@ -203,7 +203,7 @@ sizes = data_sorted['Доля трудоустроенных']
 colors = plt.cm.tab20(range(len(sizes)))
 
 # Создаем фигуру с высоким dpi для четкости
-fig, ax = plt.subplots(figsize=(6, 4), dpi=200, subplot_kw=dict(aspect="equal"))
+fig, ax = plt.subplots(figsize=(7, 3), dpi=200, subplot_kw=dict(aspect="equal"))
 
 # Внутренний круг с уменьшенным шрифтом для отраслей
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
