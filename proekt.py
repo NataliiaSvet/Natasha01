@@ -203,18 +203,18 @@ sizes = data_sorted['Доля трудоустроенных']
 colors = plt.cm.tab20(range(len(sizes)))
 
 # Создаем более компактную фигуру с высоким разрешением для четкости
-fig, ax = plt.subplots(figsize=(4, 2), dpi=200, subplot_kw=dict(aspect="equal"))
+fig, ax = plt.subplots(figsize=(5, 2), dpi=200, subplot_kw=dict(aspect="equal"))
 
 # Внутренний круг с уменьшенным шрифтом для отраслей
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
        wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.1,
-       textprops={'fontsize': 4, 'weight': 'bold'})
+       textprops={'fontsize': 6, 'weight': 'bold'})
 
 # Внешний круг - с процентами, также уменьшенный шрифт
 inner_sizes = sizes / sizes.sum()
 ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.6,
        startangle=90, colors=colors, radius=0.6, wedgeprops=dict(width=0.2, edgecolor='w'),
-       textprops={'fontsize': 3, 'weight': 'bold'})
+       textprops={'fontsize': 5, 'weight': 'bold'})
 
 # Отображение диаграммы в Streamlit
 st.pyplot(fig)
