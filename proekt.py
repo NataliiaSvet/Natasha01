@@ -210,13 +210,13 @@ fig, ax = plt.subplots(figsize=(6, 2), dpi=150, subplot_kw=dict(aspect="equal"))
 # Внутренний круг с надписями отраслей
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
        wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.2,
-       textprops={'fontsize': 5, 'weight': 'bold'})  # Уменьшенный шрифт для надписей отраслей
+       textprops={'fontsize': 4, 'weight': 'bold'})  # Уменьшенный шрифт для надписей отраслей
 
 # Внешний круг - с процентами
 inner_sizes = sizes / sizes.sum()
 ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.6,
        startangle=90, colors=colors, radius=0.6, wedgeprops=dict(width=0.2, edgecolor='w'),
-       textprops={'fontsize': 4, 'weight': 'bold'})  # Уменьшенный шрифт для процентов
+       textprops={'fontsize': 3, 'weight': 'bold'})  # Уменьшенный шрифт для процентов
 
 # Заголовок с улучшенной четкостью
 # plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР", fontsize=10, weight='bold')
