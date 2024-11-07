@@ -208,13 +208,13 @@ fig, ax = plt.subplots(figsize=(7, 3), dpi=200, subplot_kw=dict(aspect="equal"))
 # Внутренний круг с уменьшенным шрифтом для отраслей
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
        wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.15,
-       textprops={'fontsize': 6, 'weight': 'bold'})  # Оптимизированный шрифт для текста
+       textprops={'fontsize': 5, 'weight': 'bold'})  # Оптимизированный шрифт для текста
 
 # Внешний круг с процентами и регулировкой `bbox` для улучшенного выравнивания
 inner_sizes = sizes / sizes.sum()
 ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.55,
        startangle=90, colors=colors, radius=0.6, wedgeprops=dict(width=0.2, edgecolor='w'),
-       textprops={'fontsize': 5, 'weight': 'bold', 'bbox': dict(facecolor='white', edgecolor='none', pad=0.5)}) 
+       textprops={'fontsize': 4, 'weight': 'bold', 'bbox': dict(facecolor='white', edgecolor='none', pad=0.5)}) 
 
 # Увеличение плотности с помощью высокого dpi
 st.pyplot(fig)
