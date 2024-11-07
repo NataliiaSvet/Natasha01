@@ -205,12 +205,12 @@ sizes = data_sorted['Доля трудоустроенных']
 colors = plt.cm.tab20(range(len(sizes)))  # Более яркая палитра для четкости
 
 # Создаем фигуру с повышенным dpi
-fig, ax = plt.subplots(figsize=(3, 3), dpi=150, subplot_kw=dict(aspect="equal"))
+fig, ax = plt.subplots(figsize=(8, 4), dpi=150, subplot_kw=dict(aspect="equal"))
 
 # Внутренний круг
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
        wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.2,
-       textprops={'fontsize': 5, 'weight': 'bold'})  # Более четкий шрифт
+       textprops={'fontsize': 6, 'weight': 'bold'})  # Более четкий шрифт
 
 # Внешний круг - с процентами
 inner_sizes = sizes / sizes.sum()
