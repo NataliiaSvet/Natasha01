@@ -189,37 +189,35 @@ st.markdown(
 file_path = 'DA_Svietashova_diagramma2.xlsx'
 df = pd.read_excel(file_path)
 
-# Назначение колонок (проверьте, чтобы названия совпадали с вашими данными)
+# Назначение колонок
 directions = df['Направления экономики ЧР']
 employment_rates = df['Доля трудоустроенных особ с ВЗ из Украины']
 
 # Создание DataFrame и сортировка по значениям трудоустройства
 data = pd.DataFrame({'Направления': directions, 'Доля трудоустроенных': employment_rates})
-data_sorted = data.sort_values(by='Доля трудоустроенных')  # Сортировка по возрастанию
+data_sorted = data.sort_values(by='Доля трудоустроенных')
 
-# Предполагается, что данные уже загружены в data_sorted
+# Настройка данных
 labels = data_sorted['Направления']
 sizes = data_sorted['Доля трудоустроенных']
+colors = plt.cm.tab20(range(len(sizes)))
 
-# Цветовая палитра
-colors = plt.cm.tab20(range(len(sizes)))  # Более яркая палитра для четкости
+# Создаем фигуру с высоким dpi для четкости
+fig, ax = plt.subplots(figsize=(6, 4), dpi=200, subplot_kw=dict(aspect="equal"))
 
-# Создаем фигуру с повышенным dpi
-fig, ax = plt.subplots(figsize=(6, 2), dpi=150, subplot_kw=dict(aspect="equal"))
-
-# Внутренний круг с надписями отраслей
+# Внутренний круг с уменьшенным шрифтом для отраслей
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
-       wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.2,
-       textprops={'fontsize': 4, 'weight': 'bold'})  # Уменьшенный шрифт для надписей отраслей
+       wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.15,
+       textprops={'fontsize': 6, 'weight': 'bold'})  # Оптимизированный шрифт для текста
 
-# Внешний круг - с процентами
+# Внешний круг с уменьшенным шрифтом для процентов
 inner_sizes = sizes / sizes.sum()
-ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.6,
+ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.5,
        startangle=90, colors=colors, radius=0.6, wedgeprops=dict(width=0.2, edgecolor='w'),
-       textprops={'fontsize': 3, 'weight': 'bold'})  # Уменьшенный шрифт для процентов
+       textprops={'fontsize': 5, 'weight': 'bold'})  # Оптимизированный шрифт для процентов
 
-# Заголовок с улучшенной четкостью
-# plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР", fontsize=10, weight='bold')
+# Увеличение плотности с помощью высокого dpi
+st.pyplot(fig)
 
 # Отображение в Streamlit
 st.pyplot(fig)
