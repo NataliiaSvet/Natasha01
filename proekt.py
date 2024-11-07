@@ -207,16 +207,16 @@ colors = plt.cm.tab20(range(len(sizes)))  # Более яркая палитра
 # Создаем фигуру с повышенным dpi
 fig, ax = plt.subplots(figsize=(6, 2), dpi=150, subplot_kw=dict(aspect="equal"))
 
-# Внутренний круг
+# Внутренний круг с надписями отраслей
 ax.pie(sizes, labels=labels, startangle=90, colors=colors, radius=0.9,
        wedgeprops=dict(width=0.2, edgecolor='w'), labeldistance=1.2,
-       textprops={'fontsize': 6, 'weight': 'bold'})  # Более четкий шрифт
+       textprops={'fontsize': 5, 'weight': 'bold'})  # Уменьшенный шрифт для надписей отраслей
 
 # Внешний круг - с процентами
 inner_sizes = sizes / sizes.sum()
 ax.pie(inner_sizes, labels=[f'{int(size)}%' for size in sizes], labeldistance=0.6,
        startangle=90, colors=colors, radius=0.6, wedgeprops=dict(width=0.2, edgecolor='w'),
-       textprops={'fontsize': 5, 'weight': 'bold'})  # Четкость внешнего текста
+       textprops={'fontsize': 4, 'weight': 'bold'})  # Уменьшенный шрифт для процентов
 
 # Заголовок с улучшенной четкостью
 # plt.title("Доля трудоустроенных украинских мигрантов по отраслям экономики ЧР", fontsize=10, weight='bold')
