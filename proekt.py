@@ -265,4 +265,40 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 
+
+# Загрузка данных из Excel файла
+file_path = 'DA_Svietashova_column.xlsx'
+df = pd.read_excel(file_path)
+
+df = pd.DataFrame(data)
+
+# Установка ширины столбцов
+bar_width = 0.35
+index = np.arange(len(df))
+
+# Построение графика
+fig, ax = plt.subplots(figsize=(10, 6))
+bar1 = ax.bar(index - bar_width / 2, df['Расходы на помощь украинским беженцам, млрд крон'], bar_width, label='Расходы', color='salmon')
+bar2 = ax.bar(index + bar_width / 2, df['Доходы от миграции украинцев, млрд крон'], bar_width, label='Доходы', color='skyblue')
+
+# Добавление подписей и форматирование
+ax.set_xlabel('Период времени')
+ax.set_ylabel('Млрд крон')
+ax.set_title('Соотношение расходов на помощь украинским беженцам и доходов от беженцев в бюджет')
+ax.set_xticks(index)
+ax.set_xticklabels(df['Период времени'], rotation=45, ha='right')
+ax.legend()
+
+# Добавление значений над столбцами
+for bar in bar1:
+    yval = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2, yval + 0.5, round(yval, 1), ha='center', va='bottom', fontsize=9)
+
+for bar in bar2:
+    yval = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2, yval + 0.5, round(yval, 1), ha='center', va='bottom', fontsize=9)
+
+plt.tight_layout()
+plt.show()
+
    
