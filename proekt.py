@@ -225,7 +225,7 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;
 # Отступ между графиками
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: center;'>Соотношение работающих в ЧР беженцев из Украины и получающих гуманитарную помощь, 2023-2024 гг.</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Соотношение работающих в ЧР мигрантов из Украины с временной защитой и получающих гуманитарную помощь, 2023-2024 гг.</h2>", unsafe_allow_html=True)
 
 # Загрузка данных из Excel файла
 file_path = 'DA_Svietashova_gist2.xlsx'
