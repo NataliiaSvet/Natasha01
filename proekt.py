@@ -265,7 +265,7 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Вывод заголовка по центру
-st.markdown("<h2 style='text-align: center; color: black;'>Соотношение расходов на помощь мигрантам из Украины и доходов от них в бюджет</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: black;'>Соотношение расходов на помощь мигрантам из Украины и доходов от них в бюджет Чешской республики</h1>", unsafe_allow_html=True)
 
 
 # Загрузка данных из Excel файла
