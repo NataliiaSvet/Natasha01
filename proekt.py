@@ -226,7 +226,7 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Загрузка данных из Excel файла
-file_path = '/mnt/data/DA_Svietashova_gist2.xlsx'
+file_path = 'DA_Svietashova_gist2.xlsx'
 df = pd.read_excel(file_path)
 
 # Предполагаем, что в файле есть два столбца для оси Y, которые нужно отобразить на одном графике
