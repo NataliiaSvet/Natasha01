@@ -237,7 +237,7 @@ y_column1 = df.columns[1]  # Первый столбец для линии 1
 y_column2 = df.columns[2]  # Второй столбец для линии 2
 
 # Построение графика с двумя линиями и уменьшенным размером
-fig, ax = plt.subplots(figsize=(8, 4))  # Уменьшение размера фигуры
+fig, ax = plt.subplots(figsize=(7, 3))  # Уменьшение размера фигуры
 
 # Линия 1
 ax.plot(df[x_column], df[y_column1], marker='o', color='b', label=y_column1)
