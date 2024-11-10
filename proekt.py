@@ -225,4 +225,34 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;
 # Отступ между графиками
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
+# Загрузка данных из Excel файла
+file_path = '/mnt/data/DA_Svietashova_gist2.xlsx'
+df = pd.read_excel(file_path)
+
+# Предполагаем, что в файле есть два столбца для оси Y, которые нужно отобразить на одном графике
+# Замените "Column1", "Column2" и "Column3" на реальные названия столбцов из вашего файла
+x_column = df.columns[0]  # Столбец для оси X
+y_column1 = df.columns[1] # Первый столбец для линии 1
+y_column2 = df.columns[2] # Второй столбец для линии 2
+
+# Построение графика с двумя линиями
+fig, ax = plt.subplots()
+
+# Линия 1
+ax.plot(df[x_column], df[y_column1], marker='o', color='b', label=y_column1)
+
+# Линия 2
+ax.plot(df[x_column], df[y_column2], marker='x', color='g', label=y_column2)
+
+# Настройки графика
+ax.set_xlabel(x_column)
+ax.set_ylabel('Значения')
+ax.set_title('Две линии на одном графике')
+ax.legend()
+ax.grid(True)
+
+# Отображение графика в Streamlit
+st.pyplot(fig)
+
+
    
