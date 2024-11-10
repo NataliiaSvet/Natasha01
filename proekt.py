@@ -14,7 +14,7 @@ rcParams['font.family'] = 'Arial'
 st.set_page_config(page_title="Анализ затрат", layout="wide")
 
 # Вывод заголовка по центру
-st.markdown("<h1 style='text-align: center; color: black;'>Расходы Чешской республики, связанные с военным конфликтом в Украине, 2022-2024 гг.</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: black;'>Расходы Чешской республики, связанные с военным конфликтом в Украине, 2022-2024 гг.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных
 df = pd.read_excel('DA_Svietashova_diagramma.xlsx')
@@ -79,7 +79,7 @@ st.markdown("**Примечание:** Данные основаны на офи
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Заголовок для второй диаграммы
-st.markdown("<h1 style='text-align: center; color: black;'>Количество лиц в Чешской республике, получивших временную защиту с февраля 2022 г.</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: black;'>Количество лиц в Чешской республике, получивших временную защиту с февраля 2022 г.</h1>", unsafe_allow_html=True)
 
 # Загрузка данных для столбчатой диаграммы
 df_refugees = pd.read_excel('DA_Svietashova_gist.xlsx')
@@ -132,7 +132,7 @@ for index, row in df.iterrows():
     ).add_to(marker_cluster)
 
 # Отображение карты в Streamlit
-st.markdown("<h1 style='text-align: center;'>Карта количества лиц с временной защитой в Чехии по регионам</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Карта количества лиц с временной защитой в Чехии по регионам</h1>", unsafe_allow_html=True)
 
 # Установите размеры карты
 map_height = 600  # Установите желаемую высоту карты
@@ -265,7 +265,7 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
 # Вывод заголовка по центру
-st.markdown("<h1 style='text-align: center; color: black;'>Соотношение расходов на помощь мигрантам из Украины и доходов от них в бюджет</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: black;'>Соотношение расходов на помощь мигрантам из Украины и доходов от них в бюджет</h1>", unsafe_allow_html=True)
 
 
 # Загрузка данных из Excel файла
