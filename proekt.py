@@ -246,8 +246,8 @@ ax.plot(df[x_column], df[y_column2], marker='x', color='g', label=y_column2)
 
 # Настройки графика
 ax.set_xlabel(x_column)
-ax.set_ylabel('Значения')
-ax.set_title('Две линии на одном графике')
+# ax.set_ylabel('Значения')
+# ax.set_title('Две линии на одном графике')
 ax.legend()
 ax.grid(True)
 
