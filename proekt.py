@@ -264,10 +264,9 @@ st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;
 # Отступ между графиками
 st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 
+# Вывод заголовка по центру
+st.markdown("<h1 style='text-align: center; color: black;'>Соотношение расходов на помощь мигрантам из Украины и доходов от них в бюджет</h1>", unsafe_allow_html=True)
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 # Загрузка данных из Excel файла
 file_path = 'DA_Svietashova_column.xlsx'
@@ -287,7 +286,7 @@ bar2 = ax.bar(index + bar_width / 2, df['Доходы от миграции ук
 # Добавление подписей и форматирование
 ax.set_xlabel('Период времени')
 ax.set_ylabel('Млрд крон')
-ax.set_title('Соотношение расходов на помощь украинским беженцам и доходов от беженцев в бюджет')
+# ax.set_title('Соотношение расходов на помощь украинским беженцам и доходов от беженцев в бюджет')
 ax.set_xticks(index)
 ax.set_xticklabels(df['Период времени'], rotation=45, ha='right')
 ax.legend()
