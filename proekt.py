@@ -228,7 +228,9 @@ st.markdown("<div style='height: 100px;'></div>", unsafe_allow_html=True)
 st.markdown(
     "<h2 style='text-align: center; color: black;'>"
     "Соотношение работающих в ЧР беженцев из Украины и получающих гуманитарную помощь, 2023-2024 гг."
-unsafe_allow_html=True
+unsafe_allow_html=True)
+
+st.markdown("<h2 style='text-align: center;'>Распределение лиц с временной защитой по регионам</h2>", unsafe_allow_html=True)
 
 # Загрузка данных из Excel файла
 file_path = 'DA_Svietashova_gist2.xlsx'
