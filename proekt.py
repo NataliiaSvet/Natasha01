@@ -304,3 +304,6 @@ for bar in bar2:
 # Оптимизация макета
 plt.tight_layout()
 plt.show()
+
+# Отображение графика в Streamlit
+st.pyplot(fig)
