@@ -250,8 +250,9 @@ ax.set_xlabel(x_column)
 ax.legend()
 ax.grid(True)
 
-# Поворот подписей оси X на 90 градусов
-plt.xticks(rotation=90)
+# Поворот подписей оси X на 90 градусов и уменьшение размера шрифта
+plt.xticks(rotation=90, fontsize=8)  # Уменьшение шрифта подписей на оси X
+plt.yticks(fontsize=8)  # Уменьшение шрифта подписей на оси Y
 
 # Отображение графика в Streamlit
 st.pyplot(fig)
