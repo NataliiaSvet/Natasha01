@@ -309,11 +309,6 @@ st.pyplot(fig)
 
 
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import streamlit as st
-
 # Загрузка данных из Excel файла
 file_path = 'DA_Svietashova_column.xlsx'
 df = pd.read_excel(file_path)
@@ -329,18 +324,21 @@ selected_period = st.selectbox("Выберите период времени", p
 # Фильтруем данные по выбранному периоду
 filtered_df = df[df['Период времени'] == selected_period]
 
+# Новые индексы для оси X, которые будут соответствовать отфильтрованным данным
+filtered_index = np.arange(len(filtered_df))
+
 # Построение графика
 fig, ax = plt.subplots(figsize=(10, 6))
-bar1 = ax.bar(index - bar_width / 2, filtered_df['Расходы на помощь украинским беженцам, млрд крон'], 
+bar1 = ax.bar(filtered_index - bar_width / 2, filtered_df['Расходы на помощь украинским беженцам, млрд крон'], 
               bar_width, label='Расходы', color='salmon')
-bar2 = ax.bar(index + bar_width / 2, filtered_df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
+bar2 = ax.bar(filtered_index + bar_width / 2, filtered_df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
               bar_width, label='Доходы', color='skyblue')
 
 # Добавление подписей и форматирование
 ax.set_xlabel('Период времени')
 ax.set_ylabel('Млрд крон')
 ax.set_title(f'Соотношение расходов и доходов для периода: {selected_period}')
-ax.set_xticks(index)  # Установка меток по оси X
+ax.set_xticks(filtered_index)  # Установка меток по оси X для отфильтрованных данных
 ax.set_xticklabels(filtered_df['Период времени'], rotation=45, ha='right')  # Подписи оси X
 
 ax.legend()
