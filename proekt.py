@@ -328,10 +328,10 @@ filtered_df = df[df['Период времени'] == selected_period]
 filtered_index = np.arange(len(filtered_df))
 
 # Построение графика
-fig, ax = plt.subplots(figsize=(6, 6))
-bar1 = ax.bar(filtered_index - bar_width / 2, filtered_df['Расходы на помощь украинским беженцам, млрд крон'], 
+fig, ax = plt.subplots(figsize=(4, 4))
+bar1 = ax.bar(filtered_index - bar_width / 1, filtered_df['Расходы на помощь украинским беженцам, млрд крон'], 
               bar_width, label='Расходы', color='darkgray')
-bar2 = ax.bar(filtered_index + bar_width / 2, filtered_df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
+bar2 = ax.bar(filtered_index + bar_width / 1, filtered_df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
               bar_width, label='Доходы', color='darkmagenta')
 
 # Добавление подписей и форматирование
