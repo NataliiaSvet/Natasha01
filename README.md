@@ -1,3 +1,10 @@
+# Мой проект
+
+Добро пожаловать в мой проект!
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/nataliiasvet/natasha01/main/proekt.py)
+
+
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black.svg)](https://share.streamlit.io/nataliiasvet/natasha01/main/proekt.py)
 
 # Влияние мигрантов из Украины на развитие экономики Чехии
