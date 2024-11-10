@@ -281,7 +281,7 @@ index = np.arange(len(df))
 fig, ax = plt.subplots(figsize=(10, 6))
 bar1 = ax.bar(index - bar_width / 2, df['Расходы на помощь украинским беженцам, млрд крон'], 
               bar_width, label='Расходы', color='salmon')
-bar2 = ax.bar(index + bar_width / 2, df['Доходы от миграции украинцев, млрд крон'], 
+bar2 = ax.bar(index + bar_width / 2, df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
               bar_width, label='Доходы', color='skyblue')
 
 # Добавление подписей и форматирование
