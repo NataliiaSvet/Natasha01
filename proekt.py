@@ -308,7 +308,6 @@ plt.show()
 st.pyplot(fig)
 
 
-
 # Загрузка данных из Excel файла
 file_path = 'DA_Svietashova_column.xlsx'
 df = pd.read_excel(file_path)
@@ -317,9 +316,10 @@ df = pd.read_excel(file_path)
 bar_width = 0.35
 index = np.arange(len(df))
 
-# Добавим selectbox для выбора периода времени
+# Добавляем selectbox для выбора периода времени в боковой панели
+st.sidebar.header("Выберите период времени")
 periods = df['Период времени'].unique()  # Получаем уникальные периоды времени из данных
-selected_period = st.selectbox("Выберите период времени", periods)
+selected_period = st.sidebar.selectbox("Период времени", periods)
 
 # Фильтруем данные по выбранному периоду
 filtered_df = df[df['Период времени'] == selected_period]
@@ -327,12 +327,12 @@ filtered_df = df[df['Период времени'] == selected_period]
 # Новые индексы для оси X, которые будут соответствовать отфильтрованным данным
 filtered_index = np.arange(len(filtered_df))
 
-# Построение графика
-fig, ax = plt.subplots(figsize=(4, 4))
-bar1 = ax.bar(filtered_index - bar_width / 1, filtered_df['Расходы на помощь украинским беженцам, млрд крон'], 
-              bar_width, label='Расходы', color='darkgray')
-bar2 = ax.bar(filtered_index + bar_width / 1, filtered_df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
-              bar_width, label='Доходы', color='darkmagenta')
+# Создание графика в основной области
+fig, ax = plt.subplots(figsize=(10, 6))
+bar1 = ax.bar(filtered_index - bar_width / 2, filtered_df['Расходы на помощь украинским беженцам, млрд крон'], 
+              bar_width, label='Расходы', color='salmon')
+bar2 = ax.bar(filtered_index + bar_width / 2, filtered_df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
+              bar_width, label='Доходы', color='skyblue')
 
 # Добавление подписей и форматирование
 ax.set_xlabel('Период времени')
