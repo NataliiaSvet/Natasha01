@@ -279,9 +279,9 @@ index = np.arange(len(df))
 # Построение графика
 fig, ax = plt.subplots(figsize=(10, 6))
 bar1 = ax.bar(index - bar_width / 2, df['Расходы на помощь украинским беженцам, млрд крон'], 
-              bar_width, label='Расходы', color='salmon')
+              bar_width, label='Расходы', color='darkgray')
 bar2 = ax.bar(index + bar_width / 2, df['Доходы от миграции украинцев (поступление в бюджет),млрд крон'], 
-              bar_width, label='Доходы', color='skyblue')
+              bar_width, label='Доходы', color='darkmagenta')
 
 # Добавление подписей и форматирование
 ax.set_xlabel('Период времени')
@@ -310,4 +310,4 @@ st.pyplot(fig)
 # Добавление текста под таблицей
 st.markdown("""<div style='text-align: left; font-weight: bold; font-size: 18px;'>
 После начала полномасштабной войны в феврале 2022 г. Чешская республика оказала Украине помощь в размере более 54 млрд.крон, 
-доход от работающих в ЧР мигрантов составил 46 млрд.крон </div>""", unsafe_allow_html=True)
+доход от работающих в ЧР мигрантов составил 46 млрд.крон. </div>""", unsafe_allow_html=True)
