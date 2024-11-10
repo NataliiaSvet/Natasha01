@@ -309,6 +309,11 @@ st.pyplot(fig)
 
 
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import streamlit as st
+
 # Загрузка данных из Excel файла
 file_path = 'DA_Svietashova_column.xlsx'
 df = pd.read_excel(file_path)
@@ -335,8 +340,9 @@ bar2 = ax.bar(index + bar_width / 2, filtered_df['Доходы от миграц
 ax.set_xlabel('Период времени')
 ax.set_ylabel('Млрд крон')
 ax.set_title(f'Соотношение расходов и доходов для периода: {selected_period}')
-ax.set_xticks(index)
-ax.set_xticklabels(filtered_df['Период времени'], rotation=45, ha='right')
+ax.set_xticks(index)  # Установка меток по оси X
+ax.set_xticklabels(filtered_df['Период времени'], rotation=45, ha='right')  # Подписи оси X
+
 ax.legend()
 
 # Добавление значений над столбцами
@@ -357,4 +363,3 @@ st.pyplot(fig)
 # Отображение данных на экране
 st.write(f"Данные для выбранного периода: {selected_period}")
 st.write(filtered_df)
-
